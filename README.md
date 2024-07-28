@@ -1,8 +1,16 @@
-# React + Vite
+<!-- Objective -->
+[ ] Filter and sort
+[ ] search
+[ ] Prefferd hOtel and food
+[ ] recieve notification when order
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- Features -->
+[ ] registred user can access
+[ ] secure personal information
+[ ] food cart with image
+[ ] Coupen code in payment
+[ ] cancel food item
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- Future -->
+[ ] Live chat
+[ ] auto messege when order and cancel
