@@ -20,7 +20,7 @@ const Banner = () => {
           At Hungry Hub, we bridge the gap between your busy schedule and
           delicious desires. Our diverse menu features mouth-watering dishes
           from around the globe, crafted with the freshest ingredients.
-          Whether it's a comforting meal or an exotic culinary adventure,
+          Whether it is a comforting meal or an exotic culinary adventure,
           our seamless ordering and prompt delivery ensure you enjoy
           exquisite dining without compromising on convenience. Dive into a
           delightful mealtime experience with Hungry Hub!

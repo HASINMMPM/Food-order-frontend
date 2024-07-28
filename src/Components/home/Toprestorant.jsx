@@ -13,7 +13,7 @@ const Toprestorant = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("../../../public/Restorant.json");
+        const response = await axios.get("/Restorant.json");
         const data = await response.data;
         // console.log(data)
         const Toprestorant = data.filter(

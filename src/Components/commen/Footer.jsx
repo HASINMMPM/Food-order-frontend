@@ -1,6 +1,6 @@
 import { FaFacebook,FaInstagram } from "react-icons/fa";
 
-import logo from "../../../public/Logo.png";
+import logo from "/Logo.png";
 
 import { Footer } from "flowbite-react";
 
