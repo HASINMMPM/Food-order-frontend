@@ -7,7 +7,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     flowbite.content(),
   ],
+  daisyui: {
+    darkTheme: "light",
+   },
   theme: {
+    
     extend: {
       colors: {
         primary: "#399918", //green

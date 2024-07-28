@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const RestorantCard = ({ restaurant }) => {
-  console.log(restaurant.place);
+  const place = (restaurant.place);
   return (
     <div className=" py-14">
       <Link to={`/${restaurant.name}/${restaurant._id}`}>
@@ -11,8 +11,8 @@ const RestorantCard = ({ restaurant }) => {
           </figure>
           <div className="py-4">
             <h2 className="card-title">{restaurant.name}</h2>
-            <p>{restaurant.place}</p></div>
-            <button className="w-full bg-primary py-2 text-secondary font-semibold text-lg">View Dishes</button>
+            <p>{place}</p></div>
+            <button className="w-full rounded-xl hover:rounded-2xl hover:bg-transparent hover:border-primary hover:border-4 hover:text-primary bg-primary py-2 duration-300 text-secondary font-semibold text-lg">View Dishes</button>
           
           
         </div>

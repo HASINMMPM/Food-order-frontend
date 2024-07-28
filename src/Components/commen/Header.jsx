@@ -7,9 +7,9 @@ const Header = () => {
 
   const navItems =(
     <>
-    <li className="text-primary hover:text-black "><Link to="/">Home</Link></li>
-    <li className="text-primary hover:text-black "><Link to="/menu">Menu</Link></li>
-    <li className="text-primary hover:text-black "><Link to="/restorant">Restorant</Link></li>
+    <li className="text-primary hover:text-black text-2xl "><Link to="/">Home</Link></li>
+    <li className="text-primary hover:text-black text-2xl "><Link to="/menu">Menu</Link></li>
+    <li className="text-primary hover:text-black text-2xl "><Link to="/restorant">Restorant</Link></li>
 
     </>
   )

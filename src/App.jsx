@@ -7,7 +7,7 @@ function App() {
 
 
   return (
-    <body className="bg-white h-screen">
+    <body className="">
     <div className="container mx-auto bg-white">
     <Header/>
     <Outlet/>
