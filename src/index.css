@@ -1,10 +1,9 @@
 /* heading */
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* sec */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=PT+Serif+Caption:ital@0;1&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=PT+Serif+Caption:ital@0;1&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* 3ed */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
-
 
 @tailwind base;
 @tailwind components;
@@ -14,8 +13,22 @@
   @apply max-w-screen-2xl  container py-10 mx-auto;
 }
 
+.typing {
 
+  animation: typing .5s }
 
+/* The typing effect */
+@keyframes typing {
+  from {
+    translate:0 150vw ;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
+}
 
 .lds-ellipsis,
 .lds-ellipsis div {
@@ -76,4 +89,3 @@
     transform: translate(24px, 0);
   }
 }
-

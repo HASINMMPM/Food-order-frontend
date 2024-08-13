@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import logo from "/Logo.png"
 
 
-const Header = () => {
+const Header = ({setLoginPage}) => {
 
   const navItems =(
     <>
@@ -90,7 +90,7 @@ const Header = () => {
         </div>
       </div>
       {/* Cart end   */}
-      <a className="btn bg-primary text-secondary cursor-pointer  duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center ">Signup</a>
+      <a onClick={()=>{setLoginPage(true)}} className="btn bg-primary text-secondary cursor-pointer  duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center ">Signup</a>
     </div>
   </div>
     </header>

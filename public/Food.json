@@ -1,0 +1,31 @@
+[{
+  "_id": { "$oid": "66baabcdde493383c841ade1" },
+  "title": "Puttu and Kadala Curry",
+  "price": { "$numberInt": "100" },
+  "description": "Steamed rice cake served with black chickpea curry, a traditional Kerala breakfast combination.",
+  "image":" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6xDbJ46WdVvVO_7P7F19YjKNpGeXLXm2xw&s",
+  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+  "__v": { "$numberInt": "0" }
+},
+{
+  "_id": { "$oid": "66baabcdde493383c841ade2" },
+  "title": "Idiyappam and Egg Curry",
+  "price": { "$numberInt": "120" },
+  "description": "Soft rice noodles served with spicy egg curry, a staple breakfast in Kerala households.",
+  "image": "https://www.sailusfood.com/wp-content/uploads/2012/11/egg-curry-kerala-style.jpg",
+  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+  "__v": { "$numberInt": "0" }
+},
+{
+  "_id": { "$oid": "66b3809e9b9ee2fab81c62cd" },
+  "title": "Appam and Stew",
+  "price": { "$numberInt": "140" },
+  "description": "Soft and fluffy appam served with a mild and flavorful vegetable stew, a classic breakfast choice in Kerala.",
+  "image": "https://www.pepperdelight.com/wp-content/uploads/2019/06/pepper-delight-kerala-mutton-stew-3.jpg",
+  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+  "__v": { "$numberInt": "0" }
+}
+]

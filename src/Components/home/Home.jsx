@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Toprestorant from "./Toprestorant";
 import Custemerreview from "./Custemerreview";
 import Services from "./Services";
+import StandoutDishes from "./StandoutDishes";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Toprestorant/>
       <Custemerreview/>
       <Services/>
+      <StandoutDishes/>
     </section>
   );
 };
