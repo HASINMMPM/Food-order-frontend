@@ -1,67 +1,60 @@
 import axios from "axios";
-import React, { useState,useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import ContextListProvider from "../commen/ContextListProvider";
+import { ContextList } from "../commen/ContextListProvider";
 
-
-const FoodCerd = ({ dishes }) => {
-  const [restaurant, setRestaurant] = useState("");
-  const URL = useContext(ContextListProvider)
+const FoodCard = ({ dishes }) => {
+  const [restaurant, setRestaurant] = useState(null);
+  const { URL,addToCart } = useContext(ContextList);
+  // console.log(URL);
 
   useEffect(() => {
-    // console.log(dishes)
     const fetchData = async () => {
       try {
-        const resId = dishes.restaurant; 
-        // console.log(resId)
+        const resId = dishes.restaurant; // This should be a single ObjectID now
         const response = await axios.get(
-          URL`/restuarant/restuarant/${resId}`
+          `${URL}/restuarant/restuarant/${resId}`
         );
-        const data = response.data; 
-        // console.log(data.Title);
-
-        
-        setRestaurant(data); 
-        // console.log(data.name);
+        const data = response.data;
+        // console.log(data);
+        setRestaurant(data);
       } catch (error) {
         console.error(error.message);
       }
+      setLoading(false);
     };
-  
+
     fetchData();
-  }, []);
-  
+  }, [dishes.restaurant, URL]);
+  // const resName = restaurant.Title
+  // console.log(resName)
 
   return (
     <div className="relative  m-10 w-full max-w-xs overflow-hidden rounded-lg bg-secondary hover:scale-105 hover:-translate-y-1 duration-300 shadow-md">
-      <Link to="#">
+     <Link to="#">
         <img
           className="h-60 w-full rounded-t-lg object-cover"
           src={dishes.image}
-          alt={dishes.name}
-        />
-      </Link>
-      <span className="absolute top-0 left-0 w-28 translate-y-4  -translate-x-6 -rotate-45 bg-primary text-center text-sm text-white">
+          alt={dishes.title}
+        /><span className="absolute top-0 left-0 w-28 translate-y-4  -translate-x-6 -rotate-45 bg-primary text-center text-sm text-white">
         Popular
       </span>
-      <div className="mt-4 px-5 pb-5 h-44">
-        <Link to="/#">
-          <h5 className="text-[1.5rem] font-semibold tracking-tight text-black ">
-            {dishes.title}
-          </h5>
-        </Link>
-
-        <h5 className="text-xl  text-slate-900">{restaurant.Title}</h5>
-        <h5 className="text-xl  text-slate-700">{restaurant.Place}</h5>
-        <div className="flex items-center justify-between">
+       <div className="flex flex-col gap-2">
+       <h3 className="text-black text-lg md:text-2xl">{dishes.title}</h3>
+        {restaurant && (
+          <>
+            <span className="font-semibold">{restaurant.Title}</span>
+            <span>{restaurant.Place}</span>
+          </>
+        )}
+       </div>
+       <div className="flex items-center justify-between">
           <span className="text-2xl font-semibold text-slate-900">
           ₹{dishes.price}
           </span>
 
-          <Link
-            href="#"
-            className="flex items-center rounded-md bg-primary px-5 py-2.5 text-center  hover:rounded-2xl hover:bg-transparent hover:border-primary hover:border-4 hover:text-primary  duration-[600ms] text-secondary   text-sm font-medium hover:font-semibold"
-          >
+          <button className="bg-primary flex  p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
+           onClick={() =>{addToCart(dishes._id)}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mr-2 h-6 w-6"
@@ -77,11 +70,12 @@ const FoodCerd = ({ dishes }) => {
               />
             </svg>
             Add to cart
-          </Link>
+          </button>
         </div>
-      </div>
+
+      </Link>
     </div>
   );
 };
 
-export default FoodCerd;
+export default FoodCard;

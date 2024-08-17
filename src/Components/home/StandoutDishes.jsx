@@ -93,7 +93,7 @@ const StandoutDishes = () => {
       <div className="">
         {loading && (
           <div className="flex justify-center">
-            <div className="lds-ellipsis flex justify-center items-center w-full">
+            <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
               <div></div>
               <div></div>
               <div></div>

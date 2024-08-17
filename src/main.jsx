@@ -8,7 +8,8 @@ import Home from "./Components/home/Home.jsx";
 import Menu from "./Components/menu/Menu.jsx";
 import Restorant from "./Components/restorant/Restorant.jsx";
 import ContextListProvider from "./Components/commen/ContextListProvider.jsx";
-import Cart from "./Components/commen/Cart.jsx";
+import Cart from "./Components/cart/Cart.jsx";
+import CheckOut from "./Components/cart/CheckOut.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckOut />,
       },
     ],
   },

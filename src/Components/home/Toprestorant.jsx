@@ -11,8 +11,7 @@ const Toprestorant = () => {
   const [restorant, setRestorant] = useState({});
   const [loading, setLoading] = useState(true);
 
-
-  const resURL ="http://localhost:3000/v1/restuarant/allrestaurant"
+  const resURL = "http://localhost:3000/v1/restuarant/allrestaurant";
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -31,7 +30,6 @@ const Toprestorant = () => {
       setLoading(false);
     };
 
-  
     fetchData();
   }, [resURL]);
 
@@ -78,7 +76,7 @@ const Toprestorant = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          centerMode:true
+          centerMode: true,
         },
       },
     ],
@@ -94,7 +92,7 @@ const Toprestorant = () => {
       <div className="">
         {loading && (
           <div className="flex justify-center">
-            <div className="lds-ellipsis flex justify-center items-center w-full">
+            <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
               <div></div>
               <div></div>
               <div></div>
@@ -125,16 +123,16 @@ const Toprestorant = () => {
             </div>
             <div className="">
               <div className="">
-              <Slider
-                ref={(slider) => {
-                  sliderRef = slider;
-                }}
-                {...settings}
-              >
-                {restorant.map((restaurant, index) => (
-                  <RestorantCard key={index} restaurant={restaurant} />
-                ))}
-              </Slider>
+                <Slider
+                  ref={(slider) => {
+                    sliderRef = slider;
+                  }}
+                  {...settings}
+                >
+                  {restorant.map((restaurant, index) => (
+                    <RestorantCard key={index} restaurant={restaurant} />
+                  ))}
+                </Slider>
               </div>
             </div>
           </div>
