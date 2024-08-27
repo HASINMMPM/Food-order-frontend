@@ -25,7 +25,7 @@ const StandoutDishes = () => {
           filterdfood.isPopular === true
         );
         setFood(Topfood);
-        console.log(Topfood);
+        // console.log(Topfood);
       } catch (error) {
         console.error(error.message);
       }

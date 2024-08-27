@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ResBaneer = () => {
+ const ResBaner = () => {
   return (
     <section className="mysection ">
       <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-8 animation">
@@ -18,3 +18,4 @@ export const ResBaneer = () => {
     </section>
   );
 };
+export default ResBaner

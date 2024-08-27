@@ -9,6 +9,7 @@ const ContextListProvider = (props) => {
   const [food, setFood] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAllRes, setShowAllRes] = useState(false);
 
   const addToCart = (item) => {
     if (!cartItems[item]) {
@@ -85,7 +86,9 @@ const ContextListProvider = (props) => {
     food,
     restaurant,
     loading,
-    // Add your other context variables here as needed. For example:
+    showAllRes,
+    setShowAllRes,
+
  
   };
 

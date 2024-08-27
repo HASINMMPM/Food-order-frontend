@@ -11,6 +11,7 @@ import ContextListProvider from "./Components/commen/ContextListProvider.jsx";
 import Cart from "./Components/cart/Cart.jsx";
 import CheckOut from "./Components/cart/CheckOut.jsx";
 import SingleFood from "./Components/other/SingleFood.jsx";
+import SingleRes from "./Components/other/SingleRes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "/restorant",
+        path: "/restaurant",
         element: <Restorant />,
       },
       {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path:`/dishes/:id`,
         element: <SingleFood />,
+      },
+      {
+        path:`/restaurant/:id`,
+        element: <SingleRes />,
       },
     ],
   },

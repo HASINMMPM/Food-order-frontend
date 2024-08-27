@@ -14,7 +14,7 @@ const Header = ({ setLoginPage }) => {
         <Link to="/menu">Menu</Link>
       </li>
       <li className="text-primary hover:text-black text-2xl ">
-        <Link to="/restorant">Restaurant</Link>
+        <Link to="/restaurant">Restaurant</Link>
       </li>
     </>
   );
