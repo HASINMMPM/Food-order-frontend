@@ -10,6 +10,7 @@ import Restorant from "./Components/restorant/Restorant.jsx";
 import ContextListProvider from "./Components/commen/ContextListProvider.jsx";
 import Cart from "./Components/cart/Cart.jsx";
 import CheckOut from "./Components/cart/CheckOut.jsx";
+import SingleFood from "./Components/other/SingleFood.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <CheckOut />,
+      },
+      {
+        path:`/dishes/:id`,
+        element: <SingleFood />,
       },
     ],
   },

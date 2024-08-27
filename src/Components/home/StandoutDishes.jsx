@@ -9,7 +9,7 @@ import axios from "axios";
 import FoodCerd from "./FoodCerd";
 
 const StandoutDishes = () => {
-  const [food, setFood] = useState({});
+  const [food , setFood] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ const StandoutDishes = () => {
         const data = await response.data;
         // console.log(data)
         const Topfood = data.filter((filterdfood) =>
-          filterdfood.categories.includes("66b2cbdee6e2f64dc38a2a68")
+          filterdfood.isPopular === true
         );
         setFood(Topfood);
-        // console.log(Topfood);
+        console.log(Topfood);
       } catch (error) {
         console.error(error.message);
       }

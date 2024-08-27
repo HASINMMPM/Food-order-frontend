@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { ResBaneer } from './ResBaneer'
+import VegRes from './VegRes'
 
 const Restorant = () => {
+  
   return (
-    <div>Restorant</div>
+    <main >
+      <ResBaneer/>
+   <VegRes/>
+        </main>
   )
 }
 

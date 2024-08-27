@@ -1,282 +1,173 @@
 [
   {
-    "id": 1,
-    "name": "Pizza Palace",
-    "place": "Downtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
+    "title": "Chicken Mandhi",
+    "restaurant": [{"$oid": "66b4d8658a8d47e6ba81e9a3"}],
+    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722417194/ianp2qrmanq74pk3rzfu.jpg",
+    "description": "Mandhi is a traditional Yemeni dish and it's very popular among all the Arab countries. Mandhi is usually made from rice, meat and a mixture of spices. Traditionally Mandhi is cooked in a tandoo",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 2,
-    "name": "Burger Haven",
-    "place": "East Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
+    "title": "Sadya",
+    "restaurant": [{"$oid": "66ab705945f5f2b0683bd5a2"}],
+    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722528677/btbdr98sjpcdptimjwxt.jpg",
+    "description": "Sadhya is a vegetarian feast encompassing around 15 dishes, served on a banana leaf",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 3,
-    "name": "Veggie Delight",
-    "place": "North End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
+    "title": "chicken Burger",
+    "restaurant": [{"$oid": "66ab705945f5f2b0683bd5a2"}],
+    "categories": [],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722562995/uokh1lxbsq93fchpdfce.jpg",
+    "description": "A delicious chicken burger featuring a juicy, seasoned chicken patty, perfectly grilled to retain its natural flavors. Topped with fresh lettuce, ripe tomatoes, and a slice of tangy pickles, all nestled in a soft, toasted bun. A classic favorite that's both satisfying and mouthwatering.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 4,
-    "name": "Night Owl Diner",
-    "place": "West Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
+    "title": "chocolate mouss",
+    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
+    "categories": [{"$oid": "66b2c8eb95b3bc0a31b5256d"}],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723021944/f66pkfkggijsuqhopnsz.webp",
+    "description": "its a dessert",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 5,
-    "name": "Gourmet Bistro",
-    "place": "City Center",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Classic sticky date pudding",
+    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
+    "categories": [{"$oid": "66b2c8eb95b3bc0a31b5256d"}],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723022581/lmvtbjbqtrmuelmgz7rk.jpg",
+    "description": "its a dessert",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 6,
-    "name": "Taco Town",
-    "place": "South Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Ghee Rice",
+    "restaurant": {"$oid": "66b3809e9b9ee2fab81c62cd"},
+    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723092075/anpl5txzcw3hxpr62bah.jpg",
+    "description": "a balanced meal that offers the proteins, fats, and carbohydrates required for daily activities",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 7,
-    "name": "Noodle Nirvana",
-    "place": "Uptown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Tropical Mango Delight",
+    "restaurant": "66ab705945f5f2b0683bd5a2",
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://img.freepik.com/premium-photo/juicy-tropical-mango-delight_865566-415.jpg",
+    "description": "A refreshing juice made with fresh mangoes, pineapple, and a hint of lime. Perfect for a tropical escape!",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 8,
-    "name": "Green Garden",
-    "place": "East End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
+    "title": "Coconut Pineapple Cooler",
+    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://i0.wp.com/www.imbored-letsgo.com/wp-content/uploads/2023/04/Pineapple-Coconut-Rum-Cooler.jpg?fit=847%2C1200&ssl=1",
+    "description": "A smooth blend of coconut and pineapple, offering a tropical and creamy juice experience.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 9,
-    "name": "Sunset Grill",
-    "place": "Beachside",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
+    "title": "Cucumber Melon Refresher",
+    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://thegirlonbloor.com/wp-content/uploads/2016/06/Watermelon-Cucumber-Mojitos-1.jpg",
+    "description": "A cool and refreshing juice with a blend of cucumber and melon, perfect for hot days.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 10,
-    "name": "Pepperoni Paradise",
-    "place": "Central Park",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
+    "title": "Pomegranate Passion",
+    "restaurant": {"$oid": "66b3809e9b9ee2fab81c62cd"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://heybairtender.s3.amazonaws.com/recipes/pomegranate-passion-fizz.png",
+    "description": "A rich and flavorful juice made with pure pomegranate, offering a deep red color and sweet taste.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 11,
-    "name": "Cheese Factory",
-    "place": "Midtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
+    "title": "Grape Citrus Blend",
+    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://castellodiamorosa.com/wp-content/uploads/2024/04/Mocktails_ALL-30-of-49-e1713020689528.jpg",
+    "description": "A delicious mix of grapes and citrus fruits, offering a sweet and tangy flavor.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 12,
-    "name": "Vegan Vibes",
-    "place": "Greenwich",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
+    "title": "Kiwi Pineapple Punch",
+    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://static.toiimg.com/thumb/64961851.cms?imgsize=529314&width=800&height=800",
+    "description": "A refreshing juice combining kiwi and pineapple for a tropical and tangy treat.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 13,
-    "name": "Moonlight Cafe",
-    "place": "Night Market",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
+    "title": "Mango Banana Fusion",
+    "restaurant": {"$oid": "66b4d8658a8d47e6ba81e9a3"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://cdn.loveandlemons.com/wp-content/uploads/2023/05/mango-smoothie-recipe.jpg",
+    "description": "A creamy juice blending ripe mangoes and bananas for a rich and tropical flavor.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 14,
-    "name": "Elegant Eatery",
-    "place": "Downtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Pear Ginger Elixir",
+    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://www.berlyskitchen.com/wp-content/uploads/2022/06/Ginger-Pear-Cocktail-Featured-Image.jpg",
+    "description": "A unique juice combining the sweetness of pears with a hint of spicy ginger.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 15,
-    "name": "Spicy Fiesta",
-    "place": "East Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Cauliflower Rice Stir Fry",
+    "restaurant": "66b4d8658a8d47e6ba81e9a3",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://chefsavvy.com/wp-content/uploads/cauliflower-fried-rice01.jpg",
+    "description": "A stir fry made with cauliflower rice, bell peppers, snap peas, and a soy-ginger sauce. Low in calories but full of flavor.",
+    "isPopular": false,
+    "price": 180
   },
   {
-    "id": 16,
-    "name": "Pasta Palace",
-    "place": "North End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Greek Yogurt Parfait",
+    "restaurant": "66ab705945f5f2b0683bd5a2",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://media.eggs.ca/assets/RecipePhotos/_resampled/FillWyIxMDAwIiwiNjY3Il0/Greek-Yogurt-Parfait-New-CMS.jpg",
+    "description": "A healthy parfait made with layers of Greek yogurt, fresh berries, and crunchy granola.",
+    "isPopular": false,
+    "price": 80
   },
   {
-    "id": 17,
-    "name": "Nature's Bounty",
-    "place": "West Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
+    "title": "Quinoa Salad with Lemon Vinaigrette",
+    "restaurant": "66ab7115d8fccb32bc533a10",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://cookieandkate.com/images/2019/06/best-quinoa-salad-recipe-3-768x1153.jpg",
+    "description": "A light and refreshing quinoa salad with cherry tomatoes, cucumbers, and a lemon vinaigrette.",
+    "isPopular": false,
+    "price": 150
   },
   {
-    "id": 18,
-    "name": "Twilight Tavern",
-    "place": "City Center",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
+    "title": "Vegan Tofu Stir Fry",
+    "restaurant": "66b3809e9b9ee2fab81c62cd",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://cookieandkate.com/images/2019/06/vegan-tofu-stir-fry-recipe.jpg",
+    "description": "A hearty stir fry with tofu, bell peppers, broccoli, and a spicy ginger-garlic sauce.",
+    "isPopular": false,
+    "price": 90
   },
   {
-    "id": 19,
-    "name": "Crusty Corner",
-    "place": "South Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
-  },
-  {
-    "id": 20,
-    "name": "Burger Barn",
-    "place": "Uptown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
-  },
-  {
-    "id": 21,
-    "name": "Herbivore Haven",
-    "place": "East End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
-  },
-  {
-    "id": 22,
-    "name": "Starlight Cafe",
-    "place": "Beachside",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
-  },
-  {
-    "id": 23,
-    "name": "Pepperoni Peak",
-    "place": "Central Park",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
-  },
-  {
-    "id": 24,
-    "name": "Cheddar's Choice",
-    "place": "Midtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
-  },
-  {
-    "id": 25,
-    "name": "Vegan Valley",
-    "place": "Greenwich",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
-  },
-  {
-    "id": 26,
-    "name": "Midnight Munchies",
-    "place": "Night Market",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
-  },
-  {
-    "id": 27,
-    "name": "Posh Plate",
-    "place": "Downtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
-  },
-  {
-    "id": 28,
-    "name": "Chili's Choice",
-    "place": "East Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
-  },
-  {
-    "id": 29,
-    "name": "Ravioli Retreat",
-    "place": "North End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
-  },
-  {
-    "id": 30,
-    "name": "Harvest House",
-    "place": "West Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
-  },
-  {
-    "id": 31,
-    "name": "Night Nosh",
-    "place": "City Center",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
-  },
-  {
-    "id": 32,
-    "name": "Crispy Crust",
-    "place": "South Side",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
-  },
-  {
-    "id": 33,
-    "name": "Beefy Bliss",
-    "place": "Uptown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
-  },
-  {
-    "id": 34,
-    "name": "Plant Power",
-    "place": "East End",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
-  },
-  {
-    "id": 35,
-    "name": "Moonlit Meals",
-    "place": "Beachside",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
-  },
-  {
-    "id": 36,
-    "name": "Cheese Dream",
-    "place": "Central Park",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Pizza Shop"
-  },
-  {
-    "id": 37,
-    "name": "Burger Bliss",
-    "place": "Midtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Burger Shop"
-  },
-  {
-    "id": 38,
-    "name": "Vegan Vision",
-    "place": "Greenwich",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Only Veg"
-  },
-  {
-    "id": 39,
-    "name": "Nocturnal Nosh",
-    "place": "Night Market",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Night Restaurant"
-  },
-  {
-    "id": 40,
-    "name": "Savory Spot",
-    "place": "Downtown",
-    "image": "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg",
-    "category": "Top Restaurants"
+    "title": "Avocado Toast with Tomato",
+    "restaurant": "66b3809e9b9ee2fab81c62cd",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://cookieandkate.com/images/2019/06/avocado-toast-recipe.jpg",
+    "description": "Classic avocado toast topped with ripe tomatoes, a sprinkle of sea salt, and a drizzle of olive oil.",
+    "isPopular": false,
+    "price": 80
   }
 ]

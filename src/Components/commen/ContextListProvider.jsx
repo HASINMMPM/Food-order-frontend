@@ -7,6 +7,8 @@ const ContextListProvider = (props) => {
   const URL = "http://localhost:3000/v1";
   const [cartItems, setCartItems] = useState({});
   const [food, setFood] = useState([]);
+  const [restaurant, setRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const addToCart = (item) => {
     if (!cartItems[item]) {
@@ -25,25 +27,38 @@ const ContextListProvider = (props) => {
       setCartItems(newCartItems);
     }
   };
-  const deleteFromCart =(item) =>{
-    const newCartItems = {...cartItems };
+  const deleteFromCart = (item) => {
+    const newCartItems = { ...cartItems };
     delete newCartItems[item];
     setCartItems(newCartItems);
-  }
+  };
 
   useEffect(() => {
-    const fetchFood = async () => {
-      try {
-        const response = await axios.get(`${URL}/food/allfood`);
-        const foodData = response.data;
-        setFood(foodData);
-      } catch (error) {
-        console.error("Error fetching food data:", error);
-      }
-    };
-
     fetchFood();
+    fetchRestaurant();
   }, []);
+  // Food
+  const fetchFood = async () => {
+    try {
+      const response = await axios.get(`${URL}/food/allfood`);
+      const foodData = response.data;
+      setFood(foodData);
+    } catch (error) {
+      console.error("Error fetching food data:", error);
+    }
+  };
+  // Restaurant
+
+  const fetchRestaurant = async () => {
+    try {
+      const response = await axios.get(`${URL}/restuarant/allrestaurant`);
+      const restaurantData = response.data;
+      setRestaurant(restaurantData);
+      setLoading(false)
+    } catch (error) {
+      console.error("Error fetching restaurant data:", error);
+    }
+  };
   const subTotal = food.reduce((total, item) => {
     if (cartItems[item._id]) {
       return total + item.price * cartItems[item._id];
@@ -64,8 +79,14 @@ const ContextListProvider = (props) => {
     deleteFromCart,
     addToCart,
     removeFromCart,
-    amountToPay,subTotal,deliveryFee,
+    amountToPay,
+    subTotal,
+    deliveryFee,
     food,
+    restaurant,
+    loading,
+    // Add your other context variables here as needed. For example:
+ 
   };
 
   return (

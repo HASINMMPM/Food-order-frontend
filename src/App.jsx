@@ -8,14 +8,14 @@ function App() {
   const [loginPage, setLoginPage] = useState(false);
 
   return (
-    <body className="px-4">
+    <main className="px-4">
       {loginPage ? <LoginPage setLoginPage={setLoginPage} /> : <></>}
       <div className="container mx-auto bg-white">
         <Header setLoginPage={setLoginPage} />
         <Outlet />
         <FooterComponent />
       </div>
-    </body>
+    </main>
   );
 }
 

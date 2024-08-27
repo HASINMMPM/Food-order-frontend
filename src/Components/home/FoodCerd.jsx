@@ -6,7 +6,7 @@ import { ContextList } from "../commen/ContextListProvider";
 const FoodCard = ({ dishes }) => {
   const [restaurant, setRestaurant] = useState(null);
   const { URL,addToCart } = useContext(ContextList);
-  // console.log(URL);
+  // console.log(dishes);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,20 +18,19 @@ const FoodCard = ({ dishes }) => {
         const data = response.data;
         // console.log(data);
         setRestaurant(data);
+        console.log(restaurant);
       } catch (error) {
         console.error(error.message);
       }
-      setLoading(false);
     };
-
+  
     fetchData();
   }, [dishes.restaurant, URL]);
-  // const resName = restaurant.Title
-  // console.log(resName)
+
 
   return (
     <div className="relative  m-10 w-full max-w-xs overflow-hidden rounded-lg bg-secondary hover:scale-105 hover:-translate-y-1 duration-300 shadow-md">
-     <Link to="#">
+     <Link to={`/dishes/${dishes._id}`}>
         <img
           className="h-60 w-full rounded-t-lg object-cover"
           src={dishes.image}
@@ -47,11 +46,12 @@ const FoodCard = ({ dishes }) => {
             <span>{restaurant.Place}</span>
           </>
         )}
-       </div>
+       </div> </Link>
        <div className="flex items-center justify-between">
+       <Link to={`/dishes/${dishes._id}`}>
           <span className="text-2xl font-semibold text-slate-900">
           ₹{dishes.price}
-          </span>
+          </span></Link>
 
           <button className="bg-primary flex  p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
            onClick={() =>{addToCart(dishes._id)}}>
@@ -73,7 +73,7 @@ const FoodCard = ({ dishes }) => {
           </button>
         </div>
 
-      </Link>
+     
     </div>
   );
 };

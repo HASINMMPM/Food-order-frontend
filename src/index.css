@@ -13,14 +13,22 @@
   @apply max-w-screen-2xl  container py-10 mx-auto;
 }
 
-.typing {
+.res-slide::-webkit-scrollbar {
+  display: none;
+}
+.res-slide{
+  scrollbar-width:none;
+  scroll-behavior : smooth;
+}
 
-  animation: typing .5s }
+.typing {
+  animation: typing 0.5s;
+}
 
 /* The typing effect */
 @keyframes typing {
   from {
-    translate:0 150vw ;
+    translate: 0 150vw;
     scale: 200% 1;
   }
 

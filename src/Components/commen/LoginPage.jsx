@@ -54,7 +54,7 @@ const LoginPage = ({setLoginPage}) => {
         className="flex flex-col gap-3 rounded-xl w-3/4 md:w-1/2 mx-auto bg-white overflow-hidden  shadow-2xl p-6"
       >
       <h1 className="text-4xl text-center font-semibold text-primary mb-6">{title}</h1>
-        {title==="Login"? 
+        {title==="Signup"? 
         <div className="flex flex-col gap-2">
         <div className="flex flex-col gap-2">
           <label className="text-primary" htmlFor="firstname">
@@ -116,15 +116,15 @@ const LoginPage = ({setLoginPage}) => {
         </div>
         <div className="flex flex-col">
         {title ==="Signup"?
-        <p className="cursor-pointer" onClick={()=>setTitle ("Login")}>I have already an account</p>:
-        <p className="cursor-pointer" onClick={()=>setTitle ("Signup")}>Don't have an account yet?</p>
+        <p className="cursor-pointer hover:text-blue-800" onClick={()=>setTitle ("Login")}>I have already an account</p>:
+        <p className="cursor-pointer hover:text-blue-800" onClick={()=>setTitle ("Signup")}>Don't have an account yet?</p>
         }
 
         </div>
 
         <button
           type="submit"
-          className="rounded-lg bg-primary mt-4 h-8 hover:bg-primary text-white transition  "
+          className="rounded-lg bg-primary mt-4 h-8 hover:bg-secondary text-white  hover:text-primary transition  "
         >{title}</button>
       </form>
       <button onClick={()=>setLoginPage(false)}  className="rounded-full bg-white mt-16 text-md md:text-2xl w-8 md:w-16 h-8 md:h-16 mx-auto ">x</button>

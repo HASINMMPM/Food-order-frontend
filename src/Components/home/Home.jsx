@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <section className="mysection ">
       <Banner/>
-      <Toprestorant/>
-      <Custemerreview/>
-      <Services/>
       <StandoutDishes/>
+      <Custemerreview/>
+      <Toprestorant/>
+      <Services/>
     </section>
   );
 };
