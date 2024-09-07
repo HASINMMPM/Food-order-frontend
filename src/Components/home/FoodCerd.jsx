@@ -18,7 +18,7 @@ const FoodCard = ({ dishes }) => {
         const data = response.data;
         // console.log(data);
         setRestaurant(data);
-        console.log(restaurant);
+        // console.log(restaurant);
       } catch (error) {
         console.error(error.message);
       }

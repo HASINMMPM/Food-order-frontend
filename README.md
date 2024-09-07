@@ -16,3 +16,5 @@
 [ ] auto messege when order and cancel
 
 noodels     Drink    veg     Burger     spicy   pasta  pizza    soup    salad   Desser   sweet  snacks seafood  meal MorningFood Rice
+<!-- delete -->
+npm i react-cookie

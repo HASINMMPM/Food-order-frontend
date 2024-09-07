@@ -1,173 +1,73 @@
 [
   {
-    "title": "Chicken Mandhi",
-    "restaurant": [{"$oid": "66b4d8658a8d47e6ba81e9a3"}],
-    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722417194/ianp2qrmanq74pk3rzfu.jpg",
-    "description": "Mandhi is a traditional Yemeni dish and it's very popular among all the Arab countries. Mandhi is usually made from rice, meat and a mixture of spices. Traditionally Mandhi is cooked in a tandoo",
-    "isPopular": false,
-    "price": 180
+    "_id": {"$oid": "66ab705945f5f2b0683bd5a2"},
+    "Title": "Hotel Delight",
+    "Place": "Kozhikode",
+    "Description": "Hotel Delight is a beloved cake shop in Kozhikode, known for its wide variety of delicious cakes, pastries, and baked goods. Open day and night, it’s a go-to destination for anyone with a sweet tooth, offering fresh and mouthwatering cakes for every occasion.",
+    "Type": "Cake",
+    "WorkingTime": "Day & Night",
+    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Image": "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg",
+    "__v": {"$numberInt": "0"},
+    "BestRestaurant": true
   },
   {
-    "title": "Sadya",
-    "restaurant": [{"$oid": "66ab705945f5f2b0683bd5a2"}],
-    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722528677/btbdr98sjpcdptimjwxt.jpg",
-    "description": "Sadhya is a vegetarian feast encompassing around 15 dishes, served on a banana leaf",
-    "isPopular": false,
-    "price": 180
+    "_id": {"$oid": "66ab7115d8fccb32bc533a10"},
+    "Title": "HNM's Diner",
+    "Place": "Malappuram",
+    "Description": "HNM's Diner is a cozy vegetarian restaurant in Malappuram, perfect for night owls. Specializing in vegetarian dishes, the diner provides a warm and inviting atmosphere where customers can enjoy healthy and satisfying meals late into the night.",
+    "Type": "Veg",
+    "WorkingTime": "Night",
+    "Owner": [{"$oid": "66aa00bcca09082a440d78db"}],
+    "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722496775/d6jkezdar4j6dpmadlcb.jpg",
+    "__v": {"$numberInt": "0"},
+    "BestRestaurant": false
   },
   {
-    "title": "chicken Burger",
-    "restaurant": [{"$oid": "66ab705945f5f2b0683bd5a2"}],
-    "categories": [],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722562995/uokh1lxbsq93fchpdfce.jpg",
-    "description": "A delicious chicken burger featuring a juicy, seasoned chicken patty, perfectly grilled to retain its natural flavors. Topped with fresh lettuce, ripe tomatoes, and a slice of tangy pickles, all nestled in a soft, toasted bun. A classic favorite that's both satisfying and mouthwatering.",
-    "isPopular": false,
-    "price": 180
+    "_id": {"$oid": "66b3809e9b9ee2fab81c62cd"},
+    "Title": "Indian Kitchen",
+    "Place": "Perinthalmanna",
+    "Description": "Indian Kitchen in Malappuram is an authentic Indian cuisine restaurant that stands out for its traditional flavors and late-night dining options. Known as one of the best restaurants in the area, it serves a variety of dishes that capture the essence of Indian cooking.",
+    "Type": "All",
+    "WorkingTime": "Night",
+    "Owner": [{"$oid": "66b3825a45b60998cd63f0b7"}],
+    "Image": "https://t4.ftcdn.net/jpg/00/09/21/15/360_F_9211505_d4hxfNtPeTfgt7AeGmoO7u79P2hwxkoQ.jpg",
+    "BestRestaurant": true
   },
   {
-    "title": "chocolate mouss",
-    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
-    "categories": [{"$oid": "66b2c8eb95b3bc0a31b5256d"}],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723021944/f66pkfkggijsuqhopnsz.webp",
-    "description": "its a dessert",
-    "isPopular": false,
-    "price": 180
+    "_id": {"$oid": "66b49c0d4ef6d7c8780fbbb2"},
+    "Title": "Chill Hotel",
+    "Place": "Tirur",
+    "Description": "Chill Hotel in Kozhikode is a relaxing spot offering a diverse range of cuisines. This all-day dining venue is ideal for those looking to unwind and enjoy meals in a peaceful setting, making it a popular choice among locals.",
+    "Type": "All",
+    "WorkingTime": "Day",
+    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Image": "https://fariyas.com/wp-content/uploads/2023/08/Slide-2.jpg",
+    "__v": {"$numberInt": "0"},
+    "BestRestaurant": true
   },
   {
-    "title": "Classic sticky date pudding",
-    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
-    "categories": [{"$oid": "66b2c8eb95b3bc0a31b5256d"}],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723022581/lmvtbjbqtrmuelmgz7rk.jpg",
-    "description": "its a dessert",
-    "isPopular": false,
-    "price": 180
+    "_id": {"$oid": "66c0cc9cdc61ddcc4fdb9b00"},
+    "Title": "Ash's Villa",
+    "Place": "Malappuram",
+    "Description": "Ash's Villa is a charming restaurant in Malappuram, offering a wide range of dishes in a villa-like setting. Its day-time operations make it perfect for enjoying a leisurely lunch or dinner with family and friends.",
+    "Type": "All",
+    "WorkingTime": "Day",
+    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723127805/oqwbsbc4scdmgspkr6fe.webp",
+    "BestRestaurant": true,
+    "__v": {"$numberInt": "0"}
   },
   {
-    "title": "Ghee Rice",
-    "restaurant": {"$oid": "66b3809e9b9ee2fab81c62cd"},
-    "categories": [{"$oid": "66b2fcc5a37c99612e6083a6"}],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723092075/anpl5txzcw3hxpr62bah.jpg",
-    "description": "a balanced meal that offers the proteins, fats, and carbohydrates required for daily activities",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Tropical Mango Delight",
-    "restaurant": "66ab705945f5f2b0683bd5a2",
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://img.freepik.com/premium-photo/juicy-tropical-mango-delight_865566-415.jpg",
-    "description": "A refreshing juice made with fresh mangoes, pineapple, and a hint of lime. Perfect for a tropical escape!",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Coconut Pineapple Cooler",
-    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://i0.wp.com/www.imbored-letsgo.com/wp-content/uploads/2023/04/Pineapple-Coconut-Rum-Cooler.jpg?fit=847%2C1200&ssl=1",
-    "description": "A smooth blend of coconut and pineapple, offering a tropical and creamy juice experience.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Cucumber Melon Refresher",
-    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://thegirlonbloor.com/wp-content/uploads/2016/06/Watermelon-Cucumber-Mojitos-1.jpg",
-    "description": "A cool and refreshing juice with a blend of cucumber and melon, perfect for hot days.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Pomegranate Passion",
-    "restaurant": {"$oid": "66b3809e9b9ee2fab81c62cd"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://heybairtender.s3.amazonaws.com/recipes/pomegranate-passion-fizz.png",
-    "description": "A rich and flavorful juice made with pure pomegranate, offering a deep red color and sweet taste.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Grape Citrus Blend",
-    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://castellodiamorosa.com/wp-content/uploads/2024/04/Mocktails_ALL-30-of-49-e1713020689528.jpg",
-    "description": "A delicious mix of grapes and citrus fruits, offering a sweet and tangy flavor.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Kiwi Pineapple Punch",
-    "restaurant": {"$oid": "66ab7115d8fccb32bc533a10"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://static.toiimg.com/thumb/64961851.cms?imgsize=529314&width=800&height=800",
-    "description": "A refreshing juice combining kiwi and pineapple for a tropical and tangy treat.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Mango Banana Fusion",
-    "restaurant": {"$oid": "66b4d8658a8d47e6ba81e9a3"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://cdn.loveandlemons.com/wp-content/uploads/2023/05/mango-smoothie-recipe.jpg",
-    "description": "A creamy juice blending ripe mangoes and bananas for a rich and tropical flavor.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Pear Ginger Elixir",
-    "restaurant": {"$oid": "66ab705945f5f2b0683bd5a2"},
-    "categories": ["66ba2022f063ee4e9e2cf9c6"],
-    "image": "https://www.berlyskitchen.com/wp-content/uploads/2022/06/Ginger-Pear-Cocktail-Featured-Image.jpg",
-    "description": "A unique juice combining the sweetness of pears with a hint of spicy ginger.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Cauliflower Rice Stir Fry",
-    "restaurant": "66b4d8658a8d47e6ba81e9a3",
-    "categories": ["66b6bb133f0a0d158b226dae"],
-    "image": "https://chefsavvy.com/wp-content/uploads/cauliflower-fried-rice01.jpg",
-    "description": "A stir fry made with cauliflower rice, bell peppers, snap peas, and a soy-ginger sauce. Low in calories but full of flavor.",
-    "isPopular": false,
-    "price": 180
-  },
-  {
-    "title": "Greek Yogurt Parfait",
-    "restaurant": "66ab705945f5f2b0683bd5a2",
-    "categories": ["66b6bb133f0a0d158b226dae"],
-    "image": "https://media.eggs.ca/assets/RecipePhotos/_resampled/FillWyIxMDAwIiwiNjY3Il0/Greek-Yogurt-Parfait-New-CMS.jpg",
-    "description": "A healthy parfait made with layers of Greek yogurt, fresh berries, and crunchy granola.",
-    "isPopular": false,
-    "price": 80
-  },
-  {
-    "title": "Quinoa Salad with Lemon Vinaigrette",
-    "restaurant": "66ab7115d8fccb32bc533a10",
-    "categories": ["66b6bb133f0a0d158b226dae"],
-    "image": "https://cookieandkate.com/images/2019/06/best-quinoa-salad-recipe-3-768x1153.jpg",
-    "description": "A light and refreshing quinoa salad with cherry tomatoes, cucumbers, and a lemon vinaigrette.",
-    "isPopular": false,
-    "price": 150
-  },
-  {
-    "title": "Vegan Tofu Stir Fry",
-    "restaurant": "66b3809e9b9ee2fab81c62cd",
-    "categories": ["66b6bb133f0a0d158b226dae"],
-    "image": "https://cookieandkate.com/images/2019/06/vegan-tofu-stir-fry-recipe.jpg",
-    "description": "A hearty stir fry with tofu, bell peppers, broccoli, and a spicy ginger-garlic sauce.",
-    "isPopular": false,
-    "price": 90
-  },
-  {
-    "title": "Avocado Toast with Tomato",
-    "restaurant": "66b3809e9b9ee2fab81c62cd",
-    "categories": ["66b6bb133f0a0d158b226dae"],
-    "image": "https://cookieandkate.com/images/2019/06/avocado-toast-recipe.jpg",
-    "description": "Classic avocado toast topped with ripe tomatoes, a sprinkle of sea salt, and a drizzle of olive oil.",
-    "isPopular": false,
-    "price": 80
+    "_id": {"$oid": "66cb36a7c7640de1620d2850"},
+    "Title": "Green Leaf Bistro",
+    "Place": "Thalasseri",
+    "Description": "Green Leaf Bistro is a vegetarian restaurant located in Kozhikode, known for its commitment to serving fresh, healthy, and delicious meals throughout the day. The menu is crafted to offer nutritious options that satisfy both the palate and the soul.",
+    "Type": "Veg",
+    "WorkingTime": "Day",
+    "Owner": [{"$oid": "66c8a3cbd304eeeb90d6cf43"}],
+    "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1724510155/s2ps31uemvb1yrgbm5pp.png",
+    "BestRestaurant": false,
+    "__v": {"$numberInt": "0"}
   }
 ]

@@ -1,9 +1,43 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "/Logo.png";
 import { ContextList } from "./ContextListProvider";
 
-const Header = ({ setLoginPage }) => {
+const Header = () => {
+  const [paramsId, setParamsId] = useState("");
+  const { setLoginPage, setToken, token, cartItems, id } =
+    useContext(ContextList);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+      const [key, value] = cookie.split("=");
+      acc[key] = value;
+      return acc;
+    }, {});
+
+    if (cookies.token) {
+      setToken(cookies.token);
+    }
+  }, [setToken]);
+
+  useEffect(() => {
+    if (!token) {
+      const sampleParams = 123;
+      setParamsId(sampleParams);
+    } else {
+      setParamsId(id);
+      console.log(paramsId);
+    }
+  }, [token, id]);
+
+  const logOut = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; // Clear the token cookie
+    setToken(null);
+    setLoginPage(true); // Show the login page when the user logs out
+    navigate("/"); // Navigate to the home page
+    location.reload(); // Reload the page
+  };
 
   const navItems = (
     <>
@@ -18,8 +52,6 @@ const Header = ({ setLoginPage }) => {
       </li>
     </>
   );
-  
-  const { cartItems } = useContext(ContextList);
 
   return (
     <header className="max-w-screen-2xl container mx-auto bg-secondary">
@@ -68,7 +100,7 @@ const Header = ({ setLoginPage }) => {
             role="button"
             className="btn mr-4 bg-secondary btn-circle text-black md:flex"
           >
-            <Link to="/cart">
+            <Link to={`/cart/${paramsId}`}>
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,24 +113,56 @@ const Header = ({ setLoginPage }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 4 4 0 014 0z"
                   />
                 </svg>
                 <span className="badge badge-sm indicator-item bg-primary text-white p-2 flex items-center">
-                  {Object.keys(cartItems).length} 
+                  {Object.keys(cartItems).length}
                 </span>
               </div>
             </Link>
           </div>
           {/* Cart end */}
-          <a
-            onClick={() => {
-              setLoginPage(true);
-            }}
-            className="btn bg-primary text-secondary cursor-pointer duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center"
-          >
-            Signup
-          </a>
+          {!token ? (
+            <button
+              onClick={() => setLoginPage(true)}
+              className="btn bg-primary text-secondary cursor-pointer duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center"
+            >
+              Signup
+            </button>
+          ) : (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Profile"
+                    src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3467.jpg"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className=" dropdown-content  z-[1] mt-3 w-52 p-2 shadow flex flex-col gap-2"
+              >
+                {/* <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li> */}
+                <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
+                  <Link to="/order">Orders</Link>
+                </li>
+                <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
+                  <a onClick={logOut}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </header>

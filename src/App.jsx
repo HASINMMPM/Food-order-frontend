@@ -1,18 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Components/commen/Header";
 import FooterComponent from "./Components/commen/Footer";
-import { useState } from "react";
+
 import LoginPage from "./Components/commen/LoginPage";
+import { useContext } from "react";
+import { ContextList } from "./Components/commen/ContextListProvider";
 
 function App() {
-  const [loginPage, setLoginPage] = useState(false);
+  const {loginPage}= useContext (ContextList)
+  
 
   return (
     <main className="px-4">
-      {loginPage ? <LoginPage setLoginPage={setLoginPage} /> : <></>}
+      {loginPage ? <LoginPage /> : <></>}
       <div className="container mx-auto bg-white">
-        <Header setLoginPage={setLoginPage} />
-        <Outlet />
+        <Header  />
+        <Outlet  />
         <FooterComponent />
       </div>
     </main>

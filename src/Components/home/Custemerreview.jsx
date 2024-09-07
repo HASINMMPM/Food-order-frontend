@@ -1,20 +1,20 @@
 import React from "react";
-import img from '/Logo.png'
+import img from '/review.png'
 
 const Custemerreview = () => {
   return (
     <section className="mysection ">
       <div className="flex justify-center items-center">
         <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-6">
-          Our support
+        Voices of Satisfaction
         </span>
       </div>
-      <div className="flex flex-col md:flex-row mt-6">
+      <div className="flex flex-col md:flex-row mt-6 gap-4">
         <div className="w-full md:w-1/2 flex justify-center items-center">
           {/* 
         Images
          */}
-         <img src={img} alt="" />
+         <img src={img} alt="" className="w-full h-full"/>
         </div>
         <div className="w-full md:w-1/2 flex flex-col gap-6  justify-center mt-10 md:mt-0">
           <h3 className="text-primary  text-3xl font-semibold font-sub-heading text-start capitalize">

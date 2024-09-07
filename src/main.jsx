@@ -12,6 +12,7 @@ import Cart from "./Components/cart/Cart.jsx";
 import CheckOut from "./Components/cart/CheckOut.jsx";
 import SingleFood from "./Components/other/SingleFood.jsx";
 import SingleRes from "./Components/other/SingleRes.jsx";
+import Order from "./Components/other/Order.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
         element: <Restorant />,
       },
       {
-        path: "/cart",
+        path: "/cart/:id",
         element: <Cart />,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
         element: <CheckOut />,
       },
       {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path:`/restaurant/:id`,
         element: <SingleRes />,
+      },
+      {
+        path:`/order`,
+        element: <Order />,
       },
     ],
   },

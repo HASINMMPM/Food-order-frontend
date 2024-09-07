@@ -3,9 +3,13 @@ import { FaFacebook,FaInstagram } from "react-icons/fa";
 import logo from "/Logo.png";
 
 import { Footer } from "flowbite-react";
+import { useContext } from "react";
+import { ContextList } from "./ContextListProvider";
 
 
 const FooterComponent = () => {
+  const {id}=useContext(ContextList) || 123
+  // console.log(id)
   return (
     <div className="container mx-auto ">
       <div className="w-full bg-primary p-4 ">
@@ -45,7 +49,9 @@ const FooterComponent = () => {
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between ">
           <Footer.Copyright className="text-secondary" href="#" by="Hungry Hub" year={2022} />
+          <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300">{id}</span>
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+           
             <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300"><FaFacebook/></span>
             <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300"><FaInstagram/></span>
           

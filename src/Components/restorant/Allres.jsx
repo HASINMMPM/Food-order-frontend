@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ContextList } from "../commen/ContextListProvider";
 
 const Allres = () => {
-  const { restaurant, loading, } = useContext(ContextList);
+  const { restaurant, loading } = useContext(ContextList);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
@@ -18,9 +18,10 @@ const Allres = () => {
     return (
       <div>
         <div>
-      
           <hr className="h-[0.250rem] w-full my-4 bg-black border-0 " />
-          <h3 className="text-center font-sub-heading font-bold text-xl md:text-3xl text-primary py-4">All Restaurant </h3>
+          <h3 className="text-center font-sub-heading font-bold text-xl md:text-3xl text-primary py-4">
+            All Restaurant{" "}
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {loading ? (
               <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
@@ -31,8 +32,11 @@ const Allres = () => {
               </div>
             ) : currentItems.length ? (
               currentItems.map((res, i) => (
-                <Link to={`res/${res._id}`} >
-                  <div key={res._id} className="transition hover:bg-secondary ease-in-out delay-150 cursor-pointer rounded-xl  hover:scale-105 border-0 md:border-r-4 border-gray-200 duration-300 card bg-white text-black p-6 md:w-[28rem] hover:shadow-xl">
+                <Link to={`/restaurant/${res._id}`}>
+                  <div
+                    key={res._id}
+                    className="transition hover:bg-secondary ease-in-out delay-150 cursor-pointer rounded-xl  hover:scale-105 border-0 md:border-r-4 border-gray-200 duration-300 card bg-white text-black p-6 md:w-[28rem] hover:shadow-xl"
+                  >
                     <figure>
                       <img
                         src={res.Image}
@@ -87,7 +91,9 @@ const Allres = () => {
           </button>
           {Array.from({ length: totalPages }, (_, i) => (
             <button
-              className={`bg-primary p-2 rounded-3xl h-10 w-10 ${currentPage === i + 1 ? 'bg-secondary' : ''}`}
+              className={`bg-primary p-2 rounded-3xl h-10 w-10 ${
+                currentPage === i + 1 ? "bg-secondary" : ""
+              }`}
               key={i}
               onClick={() => goToSpecificPage(i + 1)}
             >

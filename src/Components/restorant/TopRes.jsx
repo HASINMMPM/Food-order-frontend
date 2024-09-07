@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { ContextList } from "../commen/ContextListProvider";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
@@ -7,35 +7,46 @@ import { Link } from "react-router-dom";
 const Topres = () => {
   const containerRef = useRef();
   const { restaurant } = useContext(ContextList);
+  const [loading, setLoading] = useState(true); 
+  const [topRes, setTopRes] = useState([]);
 
-  const handlescrollLeft = () => {
+  useEffect(() => {
+    const filteredRestaurants = restaurant.filter((res) => res.BestRestaurant === true);
+    setTopRes(filteredRestaurants);
+    console.log(setTopRes)
+    setLoading(false); 
+  }, [restaurant]);
+
+  const handleScrollLeft = () => {
     containerRef.current.scrollLeft -= 500;
   };
 
-  const handlescrollRight = () => {
+  const handleScrollRight = () => {
     containerRef.current.scrollLeft += 500;
   };
-  const topRes = restaurant.filter((res) => {
-    return res.BestRestaurant === true;
-  });
 
-  console.log(topRes);
+  if (loading) {
+    return null;
+  }
+
   return (
-    <div className="  w-full h-full flex flex-col   ">
-      <h2 className="text-primary text-2xl font-bold md:text-4xl">
-        Prime Spot
-      </h2>
+    <div className="w-full h-full flex flex-col">
+      {topRes.length > 0 && (
+        <h2 className="text-primary text-2xl font-bold md:text-4xl">
+          Prime Spot
+        </h2>
+      )}
 
       <div className="w-full py-8 flex justify-center items-center">
         <div className="w-[90%] flex items-center relative">
-          {/* {topRes.length > 3 && ( */}
-          <button
-            onClick={handlescrollLeft}
-            className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 left-0 cursor-pointer"
-          >
-            <GrFormPrevious />
-          </button>
-          {/* )} */}
+          {topRes.length > 3 && (
+            <button
+              onClick={handleScrollLeft}
+              className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 left-0 cursor-pointer"
+            >
+              <GrFormPrevious />
+            </button>
+          )}
           <div
             className="w-full whitespace-nowrap overflow-x-scroll res-slide"
             ref={containerRef}
@@ -43,7 +54,6 @@ const Topres = () => {
             {topRes.map((res, index) => (
               <div key={index} className="inline-block rounded-xl mx-1">
                 <Link to={`/restaurant/${res._id}`}>
-                
                   <div className="transition hover:bg-secondary ease-in-out delay-150 cursor-pointer rounded-xl border-0 md:border-r-4 border-gray-200 duration-300 card bg-white text-black p-6 md:w-[28rem] hover:shadow-xl">
                     <figure>
                       <img
@@ -65,12 +75,14 @@ const Topres = () => {
             ))}
           </div>
 
-          <button
-            onClick={handlescrollRight}
-            className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 right-0 cursor-pointer"
-          >
-            <MdOutlineNavigateNext />
-          </button>
+          {topRes.length > 3 && (
+            <button
+              onClick={handleScrollRight}
+              className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 right-0 cursor-pointer"
+            >
+              <MdOutlineNavigateNext />
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -78,5 +90,3 @@ const Topres = () => {
 };
 
 export default Topres;
-// http://localhost:5173/restorant/restaurant/66b3809e9b9ee2fab81c62cd
-// http://localhost:5173/restaurant/66ab705945f5f2b0683bd5a2

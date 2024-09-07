@@ -23,9 +23,9 @@ const Restorant = () => {
       {!showAllRes && (
         <>
           <ResBaner />
+          <NightRes />
           <TopRes />
           <VegRes />
-          <NightRes />
         </>
       )}
       <div className="flex w-full justify-center">
