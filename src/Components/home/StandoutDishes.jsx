@@ -84,60 +84,60 @@ const StandoutDishes = () => {
     ],
   };
   return (
-    <section className="mysection ">
-      <div className="flex justify-center">
-        <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
-          Customers Favorites
-        </span>
-      </div>
-      <div className="">
-        {loading && (
-          <div className="flex justify-center">
-            <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        )}
-        {!loading && (
-          <div className="">
-            <div className="flex flex-row pt-10 justify-between items-center px-10 ">
-              <h3 className="text-primary  text-3xl font-semibold font-sub-heading capitalize text-start">
-                StandOut Dishes
-              </h3>
-              <div className="flex flex-row  gap-6 ">
-                <button
-                  className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
-                  onClick={previous}
-                >
-                  <GrFormPrevious />
-                </button>
-                <button
-                  className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
-                  onClick={next}
-                >
-                  <MdOutlineNavigateNext />
-                </button>
+    <main>
+    {food.length > 0 ? (
+      <section className="mysection">
+        <div className="flex justify-center">
+          <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
+            Customers Favorites
+          </span>
+        </div>
+        <div className="">
+          {loading ? (
+            <div className="flex justify-center">
+              <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
             </div>
-            <div className="px-10">
-              <Slider
-                ref={(slider) => {
-                  sliderRef = slider;
-                }}
-                {...settings}
-              >
-                {food.map((dishes, index) => (
-                  <FoodCerd key={index} dishes={dishes} />
-                ))}
-              </Slider>
+          ) : (
+            <div className="">
+              <div className="flex flex-row pt-10 justify-between items-center px-10">
+                <h3 className="text-primary text-3xl font-semibold font-sub-heading capitalize text-start">
+                  StandOut Dishes
+                </h3>
+                <div className="flex flex-row gap-6">
+                  <button
+                    className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                    onClick={previous}
+                  >
+                    <GrFormPrevious />
+                  </button>
+                  <button
+                    className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                    onClick={next}
+                  >
+                    <MdOutlineNavigateNext />
+                  </button>
+                </div>
+              </div>
+              <div className="px-10">
+                <Slider ref={sliderRef} {...settings}>
+                  {food.map((dish) => (
+                    <FoodCard key={dish.id} dishes={dish} /> // Use unique ID
+                  ))}
+                </Slider>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </section>
+          )}
+        </div>
+      </section>
+    ) : (
+      <></>
+    )}
+  </main>
   );
 };
 

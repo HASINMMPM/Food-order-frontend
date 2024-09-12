@@ -83,7 +83,9 @@ const Toprestorant = () => {
   };
 
   return (
-    <section className="mysection bg-secondary">
+    <main>
+{restorant.length >0 ?
+   ( <section className="mysection bg-secondary">
       <div className="flex justify-center">
         <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
           Custemers choice
@@ -138,7 +140,8 @@ const Toprestorant = () => {
           </div>
         )}
       </div>
-    </section>
+    </section>):(<></>)}
+    </main>
   );
 };
 

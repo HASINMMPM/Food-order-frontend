@@ -6,7 +6,7 @@
     "Description": "Hotel Delight is a beloved cake shop in Kozhikode, known for its wide variety of delicious cakes, pastries, and baked goods. Open day and night, it’s a go-to destination for anyone with a sweet tooth, offering fresh and mouthwatering cakes for every occasion.",
     "Type": "Cake",
     "WorkingTime": "Day & Night",
-    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Owner": [{"$oid": "66e06873f5db52362f7c92fa"}],
     "Image": "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg",
     "__v": {"$numberInt": "0"},
     "BestRestaurant": true

@@ -14,7 +14,7 @@ const ProtectRouter = () => {
         It looks like you're not logged in. Please log in to continue enjoying
         all the features.
       </p>
-      <p className="text-lg md:text-2xl hover:text-primary duration-100 hover:font-semibold" onClick={() => setLoginPage(true)}>Login here</p>
+      <p className="text-lg md:text-2xl hover:text-primary duration-100 hover:font-semibold cursor-pointer" onClick={() => setLoginPage(true)}>Login here</p>
     </main>
   );
 };

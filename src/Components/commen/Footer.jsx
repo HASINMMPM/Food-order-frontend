@@ -17,6 +17,7 @@ const FooterComponent = () => {
           <div>
             <img src={logo} alt="" className="w-32 h-32" />
           </div>
+            <h4 className="text-secondary">Do you Have a restaurent <a href="/admin/signup" target="_blank"> <span className="font-light duration-150 cursor-pointer hover:text-black">Click here to Register</span></a></h4>
           <div className="grid grid-cols-1  gap-8 sm:mt-4 sm:grid-cols-2 sm:gap-16">
             <div>
               <h4 className="text-secondary font-semibold">We Available</h4>

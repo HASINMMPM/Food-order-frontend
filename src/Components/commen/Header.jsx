@@ -155,7 +155,7 @@ const Header = () => {
                 </a>
               </li> */}
                 <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
-                  <Link to="/order">Orders</Link>
+                  <Link to="/order" className="w-full">Orders</Link>
                 </li>
                 <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
                   <a onClick={logOut}>Logout</a>

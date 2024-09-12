@@ -378,7 +378,7 @@ const CheckOut = () => {
                   icon: "success",
                 });
 
-                navigate("/");
+                navigate("/order");
                 location.reload();
               } else {
                 // Handle cancel: Delete the order

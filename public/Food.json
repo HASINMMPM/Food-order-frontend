@@ -1,31 +1,52 @@
-[{
-  "_id": { "$oid": "66baabcdde493383c841ade1" },
-  "title": "Puttu and Kadala Curry",
-  "price": { "$numberInt": "100" },
-  "description": "Steamed rice cake served with black chickpea curry, a traditional Kerala breakfast combination.",
-  "image":" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6xDbJ46WdVvVO_7P7F19YjKNpGeXLXm2xw&s",
-  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-  "__v": { "$numberInt": "0" }
-},
-{
-  "_id": { "$oid": "66baabcdde493383c841ade2" },
-  "title": "Idiyappam and Egg Curry",
-  "price": { "$numberInt": "120" },
-  "description": "Soft rice noodles served with spicy egg curry, a staple breakfast in Kerala households.",
-  "image": "https://www.sailusfood.com/wp-content/uploads/2012/11/egg-curry-kerala-style.jpg",
-  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-  "__v": { "$numberInt": "0" }
-},
-{
-  "_id": { "$oid": "66b3809e9b9ee2fab81c62cd" },
-  "title": "Appam and Stew",
-  "price": { "$numberInt": "140" },
-  "description": "Soft and fluffy appam served with a mild and flavorful vegetable stew, a classic breakfast choice in Kerala.",
-  "image": "https://www.pepperdelight.com/wp-content/uploads/2019/06/pepper-delight-kerala-mutton-stew-3.jpg",
-  "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-  "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-  "__v": { "$numberInt": "0" }
-}
+[
+  {
+    "_id": { "$oid": "66baabcdde493383c841ade1" },
+    "title": "Puttu and Kadala Curry",
+    "price": { "$numberInt": "100" },
+    "description": "Steamed rice cake served with black chickpea curry, a traditional Kerala breakfast combination.",
+    "image": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6xDbJ46WdVvVO_7P7F19YjKNpGeXLXm2xw&s",
+    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "_id": { "$oid": "66baabcdde493383c841ade2" },
+    "title": "Idiyappam and Egg Curry",
+    "price": { "$numberInt": "120" },
+    "description": "Soft rice noodles served with spicy egg curry, a staple breakfast in Kerala households.",
+    "image": "https://www.sailusfood.com/wp-content/uploads/2012/11/egg-curry-kerala-style.jpg",
+    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "_id": { "$oid": "66b3809e9b9ee2fab81c62cd" },
+    "title": "Appam and Stew",
+    "price": { "$numberInt": "140" },
+    "description": "Soft and fluffy appam served with a mild and flavorful vegetable stew, a classic breakfast choice in Kerala.",
+    "image": "https://www.pepperdelight.com/wp-content/uploads/2019/06/pepper-delight-kerala-mutton-stew-3.jpg",
+    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
+    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a8567" },
+    "title": "Chicken Mandhi",
+    "restaurant": [{ "$oid": "66ab705945f5f2b0683bd5a2" }],
+    "categories": [{ "$oid": "66b2fcc5a37c99612e6083a6" }],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722417194/ianp2qrmanq74pk3rzfu.jpg",
+    "description": "Mandhi is a traditional Yemeni dish and it's very popular among all the Arab countries. Mandhi is usually made from rice, meat and a mixture of spices. Traditionally Mandhi is cooked in a tandoo",
+    "isPopular": true,
+    "price": { "$numberInt": "180" }
+  },
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a856c" },
+    "title": "Ghee Rice",
+    "restaurant": { "$oid": "66ab705945f5f2b0683bd5a2" },
+    "categories": [{ "$oid": "66b2fcc5a37c99612e6083a6" }],
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723092075/anpl5txzcw3hxpr62bah.jpg",
+    "description": "a balanced meal that offers the proteins, fats, and carbohydrates required for daily activities",
+    "isPopular": false,
+    "price": { "$numberInt": "180" }
+  }
 ]
