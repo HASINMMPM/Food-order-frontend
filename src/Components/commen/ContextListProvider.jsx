@@ -17,6 +17,8 @@ const ContextListProvider = ({ children }) => {
   const [amountToPay, setAmountToPay] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [deliveryFee, setDeliveryFee] = useState(0);
+  const [couponDiscount, setCouponDiscount] = useState(0);
+  const [discountAmount, setDiscountAmount] = useState("");
 
   // Fetch user ID from token
   const fetchId = () => {
@@ -37,32 +39,6 @@ const ContextListProvider = ({ children }) => {
       console.log("Token not found in cookies.");
     }
   };
-
-  // Inside addToCart, log the id before making the request
-  // const addToCart = async (itemId) => {
-  //   if (!token) {
-  //     setLoginPage(true); // Show login prompt if token is missing
-  //     return;
-  //   }
-
-  //   console.log("id before adding to cart:", id);
-
-  //   setCartItems((prevItems) => ({
-  //     ...prevItems,
-  //     [itemId]: (prevItems[itemId] || 0) + 1,
-  //   }));
-
-  //   const cartURL = `${URL}/cart/add/${id}`;
-  //   console.log(cartURL);
-
-  //   try {
-  //     await axios.post(cartURL, { itemId }, { headers: { token } });
-  //     console.log("Added to cart:", itemId);
-  //     calculateAmountToPay(); // Recalculate the amount to pay after adding item
-  //   } catch (error) {
-  //     console.error("Error adding to cart:", error.response.data);
-  //   }
-  // };
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
@@ -112,17 +88,6 @@ const ContextListProvider = ({ children }) => {
     }
   };
 
-  // // Delete item from cart
-  // const deleteFromCart = (itemId) => {
-  //   setCartItems((prevItems) => {
-  //     const updatedItems = { ...prevItems };
-  //     delete updatedItems[itemId];
-  //     return updatedItems;
-  //   });
-  //   calculateAmountToPay(); // Recalculate the amount to pay after deleting item
-  // };
-
-  // Get cart data from the server
   const getCartData = async () => {
     if (token) {
       const cartURL = `${URL}/cart/get/${id}`;
@@ -138,25 +103,45 @@ const ContextListProvider = ({ children }) => {
   };
 
   // Calculate the subtotal, delivery fee, and total amount
-useEffect(() => {
-  calculateAmountToPay();
-}, [cartItems,addToCart]);
+  useEffect(() => {
+    calculateAmountToPay();
+  }, [cartItems, addToCart]);
 
-const calculateAmountToPay = () => {
-  const subTotal = food.reduce((total, item) => {
-    const quantity = cartItems[item._id] || 0;
-    return total + quantity * item.price;
-  }, 0);
+  const applyCoupon = async (couponCode) => {
+    try {
+      const response = await axios.post(`${URL}/coupon/check`, { code: couponCode });
+      if (response.data.discount) {
+        setCouponDiscount(response.data.discount);
+      } else {
+        setCouponDiscount(0);
+      }
+    } catch (error) {
+      console.error('Error applying coupon:', error);
+      console.log(error.response.data)
+      setCouponDiscount(0);
+    }
+  };
 
-  const deliveryFee = subTotal === 0 ? 0 : subTotal > 500 ? 20 : 50;
-  const totalAmount = subTotal + deliveryFee;
-    // console.log("subTotal",subTotal);
-    setSubTotal(subTotal)
-    // console.log(deliveryFee);
-    setDeliveryFee(deliveryFee)
-    // console.log("totalAmount",totalAmount);
+  // Update the total calculation to apply the coupon
+  const calculateAmountToPay = () => {
+    const subTotal = food.reduce((total, item) => {
+      const quantity = cartItems[item._id] || 0;
+      return total + quantity * item.price;
+    }, 0);
+
+    const deliveryFee = subTotal === 0 ? 0 : subTotal > 500 ? 20 : 50;
+
+   
+    setDiscountAmount ((subTotal * couponDiscount) / 100)
+    console.log(discountAmount)
+    const totalAmount = subTotal + deliveryFee - discountAmount;
+
+    setSubTotal(subTotal);
+    setDeliveryFee(deliveryFee);
     setAmountToPay(totalAmount);
   };
+
+  
 
   // Fetch all food items
   const fetchFood = async () => {
@@ -206,9 +191,13 @@ const calculateAmountToPay = () => {
     // deleteFromCart,
     addToCart,
     removeFromCart,
+    applyCoupon,
+    
     subTotal,
     deliveryFee,
     amountToPay,
+    couponDiscount,
+    discountAmount,
     food,
     restaurant,
     loading,
