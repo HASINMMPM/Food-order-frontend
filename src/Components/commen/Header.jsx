@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "/Logo.png";
 import { ContextList } from "./ContextListProvider";
 
+
 const Header = () => {
   const [paramsId, setParamsId] = useState("");
   const { setLoginPage, setToken, token, cartItems, id } =
@@ -124,12 +125,10 @@ const Header = () => {
           </div>
           {/* Cart end */}
           {!token ? (
-            <button
-              onClick={() => setLoginPage(true)}
-              className="btn bg-primary text-secondary cursor-pointer duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center"
-            >
-              Signup
-            </button>
+            <Link to="/account">
+            <button className="btn bg-primary text-secondary cursor-pointer duration-300 hover:bg-secondary hover:text-black text-yellow rounded-full flex items-center">
+              Login
+            </button></Link>
           ) : (
             <div className="dropdown dropdown-end">
               <div
@@ -155,7 +154,9 @@ const Header = () => {
                 </a>
               </li> */}
                 <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
-                  <Link to="/order" className="w-full">Orders</Link>
+                  <Link to="/order" className="w-full">
+                    Orders
+                  </Link>
                 </li>
                 <li className="bg-slate-200 text-black cursor-pointer text-center duration-300 hover:bg-secondary hover:text-black flex items-center py-[5px] justify-center">
                   <a onClick={logOut}>Logout</a>

@@ -6,26 +6,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import FoodCerd from "./FoodCerd";
+// import FoodCerd from "./FoodCerd";
+import FoodCard from "./FoodCerd";
 
 const StandoutDishes = () => {
-  const [food , setFood] = useState({});
+  const [food, setFood] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          "http://localhost:3000/v1/food/allfood"
-        );
-        const data = await response.data;
-        // console.log(data)
-        const Topfood = data.filter((filterdfood) =>
-          filterdfood.isPopular === true
-        );
+        const response = await axios.get("http://localhost:3000/v1/food/allfood");
+        const data = response.data;
+        const Topfood = data.filter((filterdfood) => filterdfood.isPopular === true);
         setFood(Topfood);
-        // console.log(Topfood);
       } catch (error) {
         console.error(error.message);
       }
@@ -35,41 +30,30 @@ const StandoutDishes = () => {
     fetchData();
   }, []);
 
-  // Slider
-
+  
   let sliderRef = useRef(null);
-  const next = () => {
-    sliderRef.slickNext();
-  };
-  const previous = () => {
-    sliderRef.slickPrev();
-  };
+  const next = () => sliderRef.current.slickNext();
+  const previous = () => sliderRef.current.slickPrev();
+
+  const slidesToShow = food.length < 3 ? food.length : 3;
+
   const settings = {
-    // dots: true,
-    infinite: true,
-    autoplay: true,
+    infinite: food.length > 1,
     autoplaySpeed: 5000,
+    autoplay: food.length > 1,
     pauseOnHover: true,
-    speed: 4000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    speed: 1000,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToShow,
     initialSlide: 0,
+    centerMode: food.length === 1, 
     responsive: [
       {
         breakpoint: 1224,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 1100,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: Math.min(slidesToShow, 2),
+          slidesToScroll: Math.min(slidesToShow, 2),
+          infinite: food.length > 2,
         },
       },
       {
@@ -77,67 +61,67 @@ const StandoutDishes = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
-          centerMode: true,
+          centerMode: true, // Center the single food item on smaller screens
         },
       },
     ],
   };
+
   return (
     <main>
-    {food.length > 0 ? (
-      <section className="mysection">
-        <div className="flex justify-center">
-          <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
-            Customers Favorites
-          </span>
-        </div>
-        <div className="">
-          {loading ? (
-            <div className="flex justify-center">
-              <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-          ) : (
-            <div className="">
-              <div className="flex flex-row pt-10 justify-between items-center px-10">
-                <h3 className="text-primary text-3xl font-semibold font-sub-heading capitalize text-start">
-                  StandOut Dishes
-                </h3>
-                <div className="flex flex-row gap-6">
-                  <button
-                    className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
-                    onClick={previous}
-                  >
-                    <GrFormPrevious />
-                  </button>
-                  <button
-                    className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
-                    onClick={next}
-                  >
-                    <MdOutlineNavigateNext />
-                  </button>
+      {food.length > 0 ? (
+        <section className="mysection">
+          <div className="flex justify-center">
+            <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
+              Customers Favorites
+            </span>
+          </div>
+          <div className="">
+            {loading ? (
+              <div className="flex justify-center">
+                <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
                 </div>
               </div>
-              <div className="px-10">
-                <Slider ref={sliderRef} {...settings}>
-                  {food.map((dish) => (
-                    <FoodCard key={dish.id} dishes={dish} /> // Use unique ID
-                  ))}
-                </Slider>
+            ) : (
+              <div className="">
+                <div className="flex flex-row pt-10 justify-between items-center px-10">
+                  <h3 className="text-primary text-3xl font-semibold font-sub-heading capitalize text-start">
+                    StandOut Dishes
+                  </h3>
+                  <div className="flex flex-row gap-6">
+                    <button
+                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                      onClick={previous}
+                    >
+                      <GrFormPrevious />
+                    </button>
+                    <button
+                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                      onClick={next}
+                    >
+                      <MdOutlineNavigateNext />
+                    </button>
+                  </div>
+                </div>
+                <div className="px-10">
+                  <Slider ref={sliderRef} {...settings}>
+                    {food.map((dish) => (
+                      <FoodCard key={dish.id} dishes={dish} />
+                    ))}
+                  </Slider>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      </section>
-    ) : (
-      <></>
-    )}
-  </main>
+            )}
+          </div>
+        </section>
+      ) : (
+        <></>
+      )}
+    </main>
   );
 };
 

@@ -14,6 +14,7 @@ import SingleFood from "./Components/other/SingleFood.jsx";
 import SingleRes from "./Components/other/SingleRes.jsx";
 import Order from "./Components/other/Order.jsx";
 import AdminSignup from "./Components/commen/AdminSingup.jsx";
+import LoginPage from "./Components/commen/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/account",
+        element: <LoginPage />,
       },
       {
         path: "/menu",

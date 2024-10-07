@@ -1,279 +1,226 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { FaEye as Eye, FaEyeSlash as EyeOff } from "react-icons/fa";
 import axios from "axios";
-import { ContextList } from "./ContextListProvider";
 import Swal from "sweetalert2";
-
-const passexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
-const phoneExp = /^(\+[0-9]{12}|[0-9]{10})$/;
-
-const schema = yup
-  .object({
-    firstName: yup.string().required("First Name is required"),
-    lastName: yup.string().required("Last Name is required"),
-    phoneNumber: yup
-      .string()
-      .matches(phoneExp, "Invalid phone number")
-      .required("Phone Number is required"),
-    password: yup
-      .string()
-      .required("Password is required")
-      .matches(
-        passexp,
-        "Password must include at least one uppercase letter, one lowercase letter, and one number"
-      ),
-  })
-  .required();
+import { FaEye as EyeIcon, FaEyeSlash as EyeOffIcon } from "react-icons/fa";
+import { ContextList } from "./ContextListProvider";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [type, setType] = useState("password");
-  const [icon, setIcon] = useState(Eye);
-  const [title, setTitle] = useState("Signup");
-
-  const { setToken, URL, setLoginPage } = useContext(ContextList);
-
+  const [icon, setIcon] = useState(<EyeIcon />);
+  const [isSignup, setIsSignup] = useState(false);
+  const [isOtpSent, setIsOtpSent] = useState(false); // New State for OTP
+  const [otp, setOtp] = useState(""); // Store OTP input
+  const { setToken, URL } = useContext(ContextList);
   const handleToggle = () => {
-    if (type === "password") {
-      setIcon(EyeOff);
-      setType("text");
-    } else {
-      setIcon(Eye);
-      setType("password");
-    }
+    setType((prevType) => (prevType === "password" ? "text" : "password"));
+    setIcon((prevIcon) =>
+      prevIcon.type === EyeIcon ? <EyeOffIcon /> : <EyeIcon />
+    );
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  } = useForm();
 
-  const submitSignup = async (data) => {
+  const navigate = useNavigate();
+
+  // Handle OTP verification
+  const handleOtpSubmit = async (data) => {
+    console.log("try to verify");
     try {
-      const response = await axios.post(`${URL}/user/usersignup`, data);
-      const token = response.data.token;
-      console.log("Signup response:", response);
-      console.log("Token received:", token);
+      const response = await axios.post(`${URL}/user/verify/register`, {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phoneNumber: data.phoneNumber,
+        password: data.password,
+        otp,
+      });
 
-      if (token) {
+      const token = response.data.token;
+      setToken(token);
+      document.cookie = `token=${token}; path=/; max-age=86400;`;
+
+      Swal.fire({
+        title: "Signup Successful",
+        icon: "success",
+        confirmButtonText: "Close",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Error verifying OTP:", error);
+      console.log(error.response.data);
+      Swal.fire(
+        "Error",
+        error.response?.data?.msg || "OTP verification failed",
+        "error"
+      );
+    }
+  };
+
+  // Handle form submit for login/signup
+  const onSubmit = async (data) => {
+    console.log("try to submit");
+    console.log("data", data);
+    try {
+      if (isSignup) {
+        if (!isOtpSent) {
+          // Step 1: Send phone number for OTP generation
+          const response = await axios.post(`${URL}/user/usersignup`, {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phoneNumber: data.phoneNumber,
+            password: data.password,
+          });
+          setIsOtpSent(true); // OTP sent, now show OTP field
+          Swal.fire({
+            title: "OTP Sent",
+            text: "Please check your phone for the OTP.",
+            icon: "success",
+          });
+        } else {
+          // Step 2: Verify OTP
+          handleOtpSubmit(data); // Now handle OTP verification
+        }
+      } else {
+        // Login flow remains the same
+        const response = await axios.post(`${URL}/user/userlogin`, data);
+        console.log("response", response);
+        const token = response.data.token;
         setToken(token);
         document.cookie = `token=${token}; path=/; max-age=86400;`;
 
-        setLoginPage(false);
-
         Swal.fire({
-          text: "Signup successful",
+          title: "Login Successful",
           icon: "success",
-          timer: 2000,
-          showConfirmButton: false,
         });
-      } else {
-        throw new Error("No token received");
+        navigate("/");
       }
-      console.log("Signup");
     } catch (error) {
-      console.log(error.response.data.msg);
-      Swal.fire({
-        text: error.response.data.msg,
-        icon: "error",
-        timer: 3000,
-        showConfirmButton: false,
-      });
+      console.error("Error during authentication:", error);
+      Swal.fire(
+        "Error",
+        error.response?.data?.msg || "Authentication failed",
+        "error"
+      );
     }
-  };
-  // console.log(`${URL}/user/userlogin`);
-  // const submitLogin = async (data) => {
-  //   console.log("Form data:", data);
-  //   try {
-  //     console.log("Login");
-  //     const response = await axios.post(
-  //       `http://localhost:3000/v1/user/userlogin`,
-  //       data
-  //     );
-
-  //     const token = response.data.token;
-  //     console.log("Login response:", response);
-  //     console.log("Token received:", token);
-
-  //     setToken(token);
-  //     document.cookie = `token=${token}; path=/; max-age=86400;`;
-
-  //     setLoginPage(false);
-
-  //     Swal.fire({
-  //       text: "Login successful",
-  //       icon: "success",
-  //       timer: 1000,
-  //       showConfirmButton: false,
-  //     });
-  //   } catch (error) {
-  //     console.error("Login error:", error);
-  //     Swal.fire({
-  //       text: `Login failed. ${error.response?.data?.msg || error.message}`,
-  //       icon: "error",
-  //       timer: 3000,
-  //       showConfirmButton: false,
-  //     });
-  //   }
-  // };
-  const submitLogin = async (data) => {
-    console.log("Form data:", data);
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-lvh absolute z-40 max-h-max bg-black/40 w-full ">
-      {title === "Signup" ? (
-        <form
-          onSubmit={handleSubmit(submitSignup)}
-          className="flex flex-col gap-3 rounded-xl w-3/4 md:w-1/2 mx-auto bg-white overflow-hidden shadow-2xl p-6 "
-        >
-          <h1 className="text-4xl text-center font-semibold text-primary mb-6">
-            {title}
-          </h1>
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-4 p-6 bg-white rounded-lg shadow-md w-full max-w-md"
+      >
+        <h1 className="text-2xl font-semibold text-center text-primary font-sub-heading">
+          {isSignup ? (isOtpSent ? "Verify OTP" : "Signup") : "Login"}
+        </h1>
 
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-col gap-2">
-              <label className="text-primary" htmlFor="firstname">
-                First Name
-              </label>
+        {/* First Name and Last Name (Only for Signup) */}
+        {isSignup && !isOtpSent && (
+          <>
+            <div className="flex flex-col">
+              <label>First Name</label>
               <input
-                {...register("firstName")}
-                className="rounded-md p-2 bg-slate-50 outline-none shadow-md"
+                {...register("firstName", { required: true })}
+                className="p-2 border rounded"
                 placeholder="First Name"
               />
-              <p className="text-red-600">{errors.firstName?.message}</p>
+              {errors.firstName && (
+                <p className="text-red-600">First Name is required</p>
+              )}
             </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-primary" htmlFor="lastname">
-                Last Name
-              </label>
+            <div className="flex flex-col">
+              <label>Last Name</label>
               <input
-                {...register("lastName")}
-                className="rounded-md p-2 bg-slate-50 outline-none shadow-md"
+                {...register("lastName", { required: true })}
+                className="p-2 border rounded"
                 placeholder="Last Name"
               />
-              <p className="text-red-600">{errors.lastName?.message}</p>
+              {errors.lastName && (
+                <p className="text-red-600">Last Name is required</p>
+              )}
             </div>
-          </div>
+          </>
+        )}
 
+        {/* Phone Number */}
+        <div className="flex flex-col">
+          <label>Phone Number</label>
+          <input
+            {...register("phoneNumber", {
+              required: true,
+              pattern: {
+                value: /^(\+[0-9]{12}|[0-9]{10})$/,
+                message: "Invalid phone number",
+              },
+            })}
+            className="p-2 border rounded"
+            placeholder="Phone Number with country code"
+          />
+          {errors.phoneNumber && (
+            <p className="text-red-600">{errors.phoneNumber.message}</p>
+          )}
+        </div>
+
+        {/* OTP Input Field */}
+        {isOtpSent && (
           <div className="flex flex-col">
-            <label className="text-primary" htmlFor="phoneNumber">
-              Phone Number
-            </label>
+            <label>OTP</label>
             <input
-              {...register("phoneNumber")}
-              className="rounded-md p-2 bg-slate-50 outline-none shadow-md"
-              placeholder="Enter your phone number"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              className="p-2 border rounded"
+              placeholder="Enter OTP"
             />
-            <p className="text-red-600">{errors.phoneNumber?.message}</p>
           </div>
+        )}
+
+        {/* Password */}
+        {!isOtpSent && (
           <div className="flex flex-col">
-            <label className="text-primary" htmlFor="password">
-              Password
-            </label>
-            <div className="flex flex-row justify-center items-center rounded-md p-2 shadow-md bg-slate-50">
+            <label>Password</label>
+            <div className="flex flex-row justify-between items-center">
               <input
+                {...register("password", { required: true })}
                 type={type}
-                {...register("password")}
-                className="password outline-transparent bg-slate-50 border-0 w-full"
+                className="p-2 w-full rounded"
                 placeholder="Password"
               />
-              <span onClick={handleToggle}>{icon}</span>
+              <span onClick={handleToggle} className="cursor-pointer">
+                {icon}
+              </span>
             </div>
-            <p className="text-red-600">{errors.password?.message}</p>
+            {errors.password && (
+              <p className="text-red-600">Password is required</p>
+            )}
           </div>
+        )}
 
-          <div className="flex flex-row items-center gap-4">
-            <input type="checkbox" required />
-            <p>
-              By clicking here, I state that I have read and understood the
-              terms and conditions
-            </p>
-          </div>
-
-          <div className="flex flex-col">
-            <p
-              className="cursor-pointer hover:text-blue-800"
-              onClick={() => setTitle("Login")}
-            >
-              I already have an account
-            </p>
-          </div>
-          <button
-            type="submit"
-            className="rounded-lg bg-primary mt-4 h-8 hover:bg-secondary text-white hover:text-primary transition"
-          >
-            {title}
-          </button>
-        </form>
-      ) : (
-        //  LOGIN
-
-        <form
-          onSubmit={handleSubmit(submitLogin)}
-          className="flex flex-col gap-3 rounded-xl w-3/4 md:w-1/2 mx-auto bg-white overflow-hidden shadow-2xl p-6 "
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="p-2 bg-primary text-white rounded hover:bg-secondary hover:text-black duration-300"
         >
-          <h1 className="text-4xl text-center font-semibold text-primary mb-6">
-            {title}
-          </h1>
+          {isSignup ? (isOtpSent ? "Verify OTP" : "Signup") : "Login"}
+        </button>
 
-          <div className="flex flex-col">
-            <label className="text-primary" htmlFor="phoneNumber">
-              Phone Number
-            </label>
-            <input
-              {...register("phoneNumber")}
-              className="rounded-md p-2 bg-slate-50 outline-none shadow-md"
-              placeholder="Enter your phone number"
-            />
-            <p className="text-red-600">{errors.phoneNumber?.message}</p>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-primary" htmlFor="password">
-              Password
-            </label>
-            <div className="flex flex-row justify-center items-center rounded-md p-2 shadow-md bg-slate-50">
-              <input
-                type={type}
-                {...register("password")}
-                className="password outline-transparent bg-slate-50 border-0 w-full"
-                placeholder="Password"
-              />
-              <span onClick={handleToggle}>{icon}</span>
-            </div>
-            <p className="text-red-600">{errors.password?.message}</p>
-          </div>
-
-          <div className="flex flex-col">
-            <p
-              className="cursor-pointer hover:text-blue-800"
-              onClick={() => setTitle("Signup")}
-            >
-              Don't have an account yet?
-            </p>
-          </div>
-          <button
-            type="submit"
-            className="rounded-lg bg-primary mt-4 h-8 hover:bg-secondary text-white hover:text-primary transition"
+        {/* Toggle Signup/Login */}
+        {!isOtpSent && (
+          <p
+            className="text-center text-blue-600 cursor-pointer hover:underline"
+            onClick={() => setIsSignup(!isSignup)}
           >
-            {title}
-          </button>
-        </form>
-      )}
-      <button
-        onClick={() => setLoginPage(false)}
-        className="rounded-full bg-white mt-16 text-md md:text-2xl w-8 md:w-16 h-8 md:h-16 mx-auto"
-      >
-        x
-      </button>
+            {isSignup
+              ? "Already have an account? Login here."
+              : "Don't have an account? Signup here."}
+          </p>
+        )}
+      </form>
     </div>
-    // <button onClick={()=>submitLogin()}>click</button>
   );
 };
 

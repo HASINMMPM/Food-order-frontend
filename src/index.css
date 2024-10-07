@@ -9,6 +9,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.coupen-bg {
+  background-image: url("https://www.shutterstock.com/image-photo/young-smiling-happy-cool-woman-260nw-2117629859.jpg");
+  background-color: aqua;
+  background-size: contain; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  position: relative;
+  background-position: right center;
+  height: 100%; /* Make sure the height is set appropriately */
+  width: 100%; /* Adjust width according to your container */
+}
+
+
 .mysection {
   @apply max-w-screen-2xl  container py-10 mx-auto;
 }

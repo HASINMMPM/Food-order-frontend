@@ -36,38 +36,28 @@ const Toprestorant = () => {
   // Slider
 
   let sliderRef = useRef(null);
-  const next = () => {
-    sliderRef.slickNext();
-  };
-  const previous = () => {
-    sliderRef.slickPrev();
-  };
+  const next = () => sliderRef.current.slickNext();
+  const previous = () => sliderRef.current.slickPrev();
+
+  const slidesToShow = restorant.length < 3 ? restorant.length : 3;
+
   const settings = {
-    // dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3500,
+    infinite: restorant.length > 1,
+    autoplaySpeed: 5000,
+    autoplay: restorant.length > 1,
     pauseOnHover: true,
-    speed: 4000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    speed: 1000,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToShow,
     initialSlide: 0,
+    centerMode: restorant.length === 1, 
     responsive: [
       {
         breakpoint: 1224,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 1100,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: Math.min(slidesToShow, 2),
+          slidesToScroll: Math.min(slidesToShow, 2),
+          infinite: restorant.length > 2,
         },
       },
       {
@@ -75,8 +65,7 @@ const Toprestorant = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
-          centerMode: true,
+          centerMode: true, // Center the single restorant item on smaller screens
         },
       },
     ],

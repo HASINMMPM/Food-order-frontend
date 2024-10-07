@@ -50,15 +50,15 @@ const Order = () => {
   }, [id, URL, token]);
 
   return (
-    <main>
+    <main className="max-w-screen-2xl container mx-auto">
       <h1 className="text-primary text-2xl md:text-4xl text-center py-8 font-heading">
         Order History
       </h1>
 
       {order.length > 0 ? (
         <>
-          {/* Desktop view */}
-          <table className="table text-lg py-16 hidden md:block ">
+         
+          <table className="table text-lg w-full py-16 hidden md:block ">
             <thead>
               <tr className="text-md  lg:text-xl">
                 <th>Image</th>

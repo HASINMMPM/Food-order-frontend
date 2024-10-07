@@ -1,0 +1,67 @@
+[
+  {
+    "_id": { "$oid": "66ff3e755da02495c292a5d1" },
+    "fullName": "Haseen",
+    "email": "nmmpm786@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+    "createdAt": { "$date": "2024-05-26T12:15:01Z" },
+    "updatedAt": { "$date": "2024-05-26T15:34:00Z" },
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66ab705945f5f2b0683bd5a2" }]
+  },
+  {
+    "_id": { "$oid": "66ff3e755bca495c292a5d2" },
+    "fullName": "Haseen",
+    "email": "hasin786@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+    "createdAt": { "$date": "2024-05-26T12:15:01Z" },
+    "updatedAt": { "$date": "2024-05-26T15:34:00Z" },
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66ab7115d8fccb32bc533a10" }]
+  },
+  {
+    "_id": { "$oid": "66ff3e755da02495c292a5d3" },
+    "fullName": "Haseen",
+    "email": "hasinmmpm@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+    "createdAt": { "$date": "2024-05-26T12:15:01Z" },
+    "updatedAt": { "$date": "2024-05-26T15:34:00Z" },
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66b3809e9b9ee2fab81c62cd" }]
+  },
+  {
+    "_id": { "$oid": "66ff3e755da02495c292a784" },
+    "fullName": "Haseen",
+    "email": "bnjmpm786@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+    "createdAt": { "$date": "2024-05-26T12:15:01Z" },
+    "updatedAt": { "$date": "2024-05-26T15:34:00Z" },
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66b49c0d4ef6d7c8780fbbb2" }]
+  },
+  {
+    "_id": { "$oid": "66ff3e755da024954292a5d5" },
+    "fullName": "Haseen",
+    "email": "ha@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+    "createdAt": { "$date": "2024-05-26T12:15:01Z" },
+    "updatedAt": { "$date": "2024-05-26T15:34:00Z" },
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66c0cc9cdc61ddcc4fdb9b00" }]
+  },
+  {
+    "_id": { "$oid": "66ff3e755da02495a292a5d6" },
+    "fullName": "Haseen",
+    "email": "hum@gmail.com",
+    "hashPassword": "$2b$10$rPf/Ws42FuEqek3iARh8IebYA7.xmZSphkvm1r7NTuVx2VxwzfO/C",
+    "role": "Admin",
+
+    "__v": { "$numberInt": "0" },
+    "restaurant": [{ "$oid": "66cb36a7c7640de1620d2850" }]
+  }
+]

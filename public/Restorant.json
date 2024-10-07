@@ -6,7 +6,7 @@
     "Description": "Hotel Delight is a beloved cake shop in Kozhikode, known for its wide variety of delicious cakes, pastries, and baked goods. Open day and night, it’s a go-to destination for anyone with a sweet tooth, offering fresh and mouthwatering cakes for every occasion.",
     "Type": "Cake",
     "WorkingTime": "Day & Night",
-    "Owner": [{"$oid": "66e06873f5db52362f7c92fa"}],
+    "Owner": [{"$oid": "66ff3e755da02495chnma5d1"}],
     "Image": "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg",
     "__v": {"$numberInt": "0"},
     "BestRestaurant": true
@@ -18,7 +18,7 @@
     "Description": "HNM's Diner is a cozy vegetarian restaurant in Malappuram, perfect for night owls. Specializing in vegetarian dishes, the diner provides a warm and inviting atmosphere where customers can enjoy healthy and satisfying meals late into the night.",
     "Type": "Veg",
     "WorkingTime": "Night",
-    "Owner": [{"$oid": "66aa00bcca09082a440d78db"}],
+    "Owner": [{"$oid": "66ff3e755bca495c292a5d2"}],
     "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722496775/d6jkezdar4j6dpmadlcb.jpg",
     "__v": {"$numberInt": "0"},
     "BestRestaurant": false
@@ -28,9 +28,9 @@
     "Title": "Indian Kitchen",
     "Place": "Perinthalmanna",
     "Description": "Indian Kitchen in Malappuram is an authentic Indian cuisine restaurant that stands out for its traditional flavors and late-night dining options. Known as one of the best restaurants in the area, it serves a variety of dishes that capture the essence of Indian cooking.",
-    "Type": "All",
+    "Type": "Meat",
     "WorkingTime": "Night",
-    "Owner": [{"$oid": "66b3825a45b60998cd63f0b7"}],
+    "Owner": [{"$oid": "66ff3e755da0249gnjh92a5d3"}],
     "Image": "https://t4.ftcdn.net/jpg/00/09/21/15/360_F_9211505_d4hxfNtPeTfgt7AeGmoO7u79P2hwxkoQ.jpg",
     "BestRestaurant": true
   },
@@ -41,7 +41,7 @@
     "Description": "Chill Hotel in Kozhikode is a relaxing spot offering a diverse range of cuisines. This all-day dining venue is ideal for those looking to unwind and enjoy meals in a peaceful setting, making it a popular choice among locals.",
     "Type": "All",
     "WorkingTime": "Day",
-    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Owner": [{"$oid": "66ff3e755da02495c292a784"}],
     "Image": "https://fariyas.com/wp-content/uploads/2023/08/Slide-2.jpg",
     "__v": {"$numberInt": "0"},
     "BestRestaurant": true
@@ -53,7 +53,7 @@
     "Description": "Ash's Villa is a charming restaurant in Malappuram, offering a wide range of dishes in a villa-like setting. Its day-time operations make it perfect for enjoying a leisurely lunch or dinner with family and friends.",
     "Type": "All",
     "WorkingTime": "Day",
-    "Owner": [{"$oid": "66a871664cc52e50b5e32fbf"}],
+    "Owner": [{"$oid": "66ff3e755da024954292a5d5"}],
     "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723127805/oqwbsbc4scdmgspkr6fe.webp",
     "BestRestaurant": true,
     "__v": {"$numberInt": "0"}
@@ -65,7 +65,7 @@
     "Description": "Green Leaf Bistro is a vegetarian restaurant located in Kozhikode, known for its commitment to serving fresh, healthy, and delicious meals throughout the day. The menu is crafted to offer nutritious options that satisfy both the palate and the soul.",
     "Type": "Veg",
     "WorkingTime": "Day",
-    "Owner": [{"$oid": "66c8a3cbd304eeeb90d6cf43"}],
+    "Owner": [{"$oid": "66ff3e755da02495a292a5d6"}],
     "Image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1724510155/s2ps31uemvb1yrgbm5pp.png",
     "BestRestaurant": false,
     "__v": {"$numberInt": "0"}

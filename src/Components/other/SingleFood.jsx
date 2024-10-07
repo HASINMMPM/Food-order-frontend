@@ -6,7 +6,7 @@ import FoodCard from "../menu/foodCard";
 import ProtectRouter from "../commen/ProtectRouter";
 
 const SingleFood = () => {
-  const { URL, addToCart, food, token, setLoginPage } = useContext(ContextList);
+  const { URL, addToCart, food, token } = useContext(ContextList);
   const { id } = useParams();
   const [singleFood, setSingleFood] = useState(null);
   const [singleRes, setSingleRes] = useState(null);
@@ -14,7 +14,7 @@ const SingleFood = () => {
 
   useEffect(() => {
     if (!token) {
-      setLoginPage(true);
+      <ProtectRouter/>
     }
     const fetchSingleFood = async () => {
       try {
