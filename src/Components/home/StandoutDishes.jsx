@@ -8,16 +8,18 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 // import FoodCerd from "./FoodCerd";
 import FoodCard from "./FoodCerd";
+import { ContextList } from "../commen/ContextListProvider";
 
 const StandoutDishes = () => {
   const [food, setFood] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { URL } = useContext(ContextList);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:3000/v1/food/allfood");
+         const response = await axios.get(`${URL}/v1/food/allfood`);
         const data = response.data;
         const Topfood = data.filter((filterdfood) => filterdfood.isPopular === true);
         setFood(Topfood);
