@@ -3,15 +3,17 @@ import { GrFormPrevious } from "react-icons/gr";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
 import RestorantCard from "./RestorantCard";
+import { ContextList } from "../commen/ContextListProvider";
 
 const Toprestorant = () => {
   const [restorant, setRestorant] = useState({});
   const [loading, setLoading] = useState(true);
+  const { URL } = useContext(ContextList);
 
-  const resURL = "http://localhost:3000/v1/restuarant/allrestaurant";
+  const resURL = `${URL}/v1/restuarant/allrestaurant`;
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
