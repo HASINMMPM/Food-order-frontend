@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { ContextList } from "../commen/ContextListProvider";
 import { FaCopy } from "react-icons/fa";
 import Swal from "sweetalert2";
+import img from "/coupen.jpg"
 
 const CoupenBanner = () => {
   const [coupen, setCoupen] = useState([]);  // Initialize as an array
@@ -38,6 +39,9 @@ const CoupenBanner = () => {
   var settings = {
     dots: true,
     infinite: true,
+    autoplaySpeed: 5000,
+    autoplay: true,
+    pauseOnHover: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -48,9 +52,10 @@ const CoupenBanner = () => {
       {coupen.length > 0 ? (
         <Slider {...settings}>
           {coupen.map((coupon, index) => (
-            <div key={index} className="coupen-bg text-white p-4 md:p-14 w-full">
+            <div key={index} className=" bg-primary text-white px-4  w-full">
               <div className="flex flex-row justify-between items-center gap-2">
-                <div className="flex flex-col items-start  gap-4 justify-center">
+                <img className="object-cover h-48 p-0" src={img} alt="" />
+                <div className="flex flex-col items-start md:p-14 gap-4 justify-center">
                   <h1 className="text-lg md:text-xl font-thin">
                     Limited Time Offer! Unlock an exclusive{" "}
                     <span className="text-black md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
