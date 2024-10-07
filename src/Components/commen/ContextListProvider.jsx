@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 export const ContextList = createContext();
 
 const ContextListProvider = ({ children }) => {
-  const URL = "http://localhost:3000/v1";
+  const URL = "https://foodorder-backend-3.onrender.com/v1";
   const [cartItems, setCartItems] = useState({});
   const [food, setFood] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
