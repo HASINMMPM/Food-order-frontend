@@ -32,22 +32,22 @@ const Header = () => {
   }, [token, id]);
 
   const logOut = () => {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; // Clear the token cookie
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; 
     setToken(null);
-    setLoginPage(true); // Show the login page when the user logs out
-    navigate("/"); // Navigate to the home page
-    location.reload(); // Reload the page
+    setLoginPage(true); 
+    navigate("/"); 
+    location.reload(); 
   };
 
   const navItems = (
     <>
-      <li className="text-primary hover:text-black text-2xl ">
+      <li className="text-primary hover:text-black text-4xl md:text-2xl ">
         <Link to="/">Home</Link>
       </li>
-      <li className="text-primary hover:text-black text-2xl ">
+      <li className="text-primary hover:text-black text-4xl md:text-2xl ">
         <Link to="/menu">Menu</Link>
       </li>
-      <li className="text-primary hover:text-black text-2xl ">
+      <li className="text-primary hover:text-black text-4xl md:text-2xl ">
         <Link to="/restaurant">Restaurant</Link>
       </li>
     </>
