@@ -37,7 +37,7 @@ const CoupenBanner = () => {
   };
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     autoplaySpeed: 5000,
     autoplay: true,
@@ -48,14 +48,16 @@ const CoupenBanner = () => {
   };
 
   return (
-    <section className="py-12">
+    <section className="py-12 ">
       {coupen.length > 0 ? (
+        <div className="banner-bg bg-primary pb-6">
+
         <Slider {...settings}>
           {coupen.map((coupon, index) => (
-            <div key={index} className="bg-primary banner-bg text-white   w-full">
-              <div className="flex flex-row justify-between items-center gap-2">
+            <div key={index} className=" text-white   w-full">
+              <div className="flex flex-col justify-between items-start px-6 gap-2">
                 
-                <div className="flex flex-col items-start py-14 px-6  mx-auto gap-4 justify-center">
+                <div className="flex flex-col items-start py-14  gap-4 justify-center">
                   <h1 className="text-lg md:text-xl font-semibold">
                     Limited Time Offer! Unlock an exclusive{" "}
                     <span className="px-2 bg-secondary text-primary text-2xl md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
@@ -66,14 +68,18 @@ const CoupenBanner = () => {
                     Hurry! This offer won't last long. Enjoy delicious savings today!
                   </p>
                 </div>
-                <FaCopy 
-                  className="cursor-pointer hover:text-secondary text-lg mx-2" 
-                  onClick={() => copyToClipboard(coupon.code)} 
+                <div  onClick={() => copyToClipboard(coupon.code)}  className="cursor-pointer flex justify-center items-center gap-2 bg-secondary text-primary p-3 rounded-xl hover:text-secondary text-lg mx-2">
+
+                Copy Code<FaCopy 
+                  className="" 
+                 
                 />
+                </div>
               </div>
             </div>
           ))}
         </Slider>
+        </div>
       ) : (
         <></>
       )}
