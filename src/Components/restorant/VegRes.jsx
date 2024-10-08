@@ -38,7 +38,7 @@ const VegRes = () => {
 
       <div className="w-full py-8 flex justify-center items-center">
         <div className="w-[90%] flex items-center relative">
-          {vegRes.length > 3 && (
+          {vegRes.length > 2 && (
             <button
               onClick={handleScrollLeft}
               className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 left-0 cursor-pointer"
@@ -73,7 +73,7 @@ const VegRes = () => {
               </div>
             ))}
           </div>
-          {vegRes.length > 3 && (
+          {vegRes.length > 2 && (
             <button
               onClick={handleScrollRight}
               className="rounded-xl absolute bg-secondary text-2xl md:text-3xl z-40 right-0 cursor-pointer"
