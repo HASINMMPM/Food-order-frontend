@@ -47,35 +47,36 @@ const FoodCard = ({ dishes }) => {
           )}
         </div>
       </Link>
-      <div className="flex items-center justify-between">
-        <Link to={`/dishes/${dishes._id}`}>
-          <span className="text-2xl font-semibold text-slate-900">
-            ₹{dishes.price}
-          </span>
-        </Link>
-        <button
-          className="bg-primary flex  p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
-          onClick={() => {
-            addToCart(dishes._id);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-2 h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+      <div className="flex items-start md:items-center justify-between flex-col md:flex-row ">
+          <Link to={`/dishes/${dishes._id}`}>
+            <span className="text-lg md:text-2xl font-semibold text-slate-900">
+              ₹{dishes.price}
+            </span>
+          </Link>
+
+          <button
+            className="bg-primary w-full md:w-auto flex flex-row items-center justify-center text-xs md:text-lg p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
+            onClick={() => {
+              addToCart(dishes._id);
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-          Add to cart
-        </button>
-      </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mr-2 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Add to cart
+          </button>
+        </div>
     </div>
   );
 };

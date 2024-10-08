@@ -40,16 +40,14 @@ const FoodCard = ({ dishes }) => {
             Popular
           </span>
           <div className="flex flex-col gap-2">
-            <h3 className="text-black font-semibold text-lg md:text-xl lg:text-2xl">
-              {dishes.title}
-            </h3>
+            <h3 className="text-black text-lg md:text-2xl">{dishes.title}</h3>
             {restaurant && (
-              <div className="flex flex-col gap-1 text-[14px] md:text-xl">
-                <span className="font-semibold">{restaurant.Title}</span>
-                <span>{restaurant.Place}</span>
-              </div>
-            )}
-          </div>{" "}
+            <>
+              <span className="font-semibold">{restaurant.Title}</span>
+              <span>{restaurant.Place}</span>
+            </>
+          )}
+          </div>
         </Link>
         <div className="flex items-start md:items-center justify-between flex-col md:flex-row ">
           <Link to={`/dishes/${dishes._id}`}>

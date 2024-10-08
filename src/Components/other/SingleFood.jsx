@@ -119,14 +119,14 @@ const SingleFood = () => {
           <hr className="border-2 border-black my-8" />
           {catByFood.length === 0 ? (<></>):
             (<div className="flex flex-col justify-center items-center">
-              <h2 className="text-lg md:text-2xl font-bold text-primary">
-                Related Foods
+              <h2 className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
+              Related Foods
               </h2>
               <p className="font-semibold py-2">
                 Discover other delicious options from our menu.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+              <div className="grid grid-cols-2 md:grid-cols-3  gap-4 mt-6">
                 {catByFood.length > 0 ? (
                   catByFood.map((dishes, i) => (
                     <FoodCard key={i} dishes={dishes} className="animation" />
