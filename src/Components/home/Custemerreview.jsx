@@ -37,8 +37,8 @@ const Custemerreview = () => {
       {reviews.length > 0 ? (
         <section className="mysection ">
           <div className="flex justify-center items-center">
-          <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
-          Voices of Satisfaction
+            <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
+              Voices of Satisfaction
             </span>
           </div>
           <div className="flex flex-col md:flex-row mt-6 gap-4">
@@ -49,7 +49,7 @@ const Custemerreview = () => {
               <img src={img} alt="" className="w-full h-full" />
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-6  justify-center mt-10 md:mt-0">
-              <h3 className="text-primary  text-3xl font-semibold font-sub-heading text-start capitalize">
+              <h3 className="text-primary text-xl md:text-3xl font-semibold font-sub-heading capitalize text-start">
                 What Our customers says
               </h3>
               <Slider {...settings}>

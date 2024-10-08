@@ -29,7 +29,7 @@ const Services = () => {
     },
   ];
   return (
-    <section className="mysection bg-secondary">
+    <section className="mysection">
       <div className="flex justify-center items-center">
       <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
       Our Survices
