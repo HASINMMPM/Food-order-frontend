@@ -12,11 +12,11 @@ const FooterComponent = () => {
   return (
     <div className="container mx-auto ">
       <div className="w-full bg-primary p-4 ">
-        <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
+        <div className=" w-full justify-between flex gap-3 flex-col md:flex-row ">
           <div>
             <img src={logo} alt="" className="w-32 h-32" />
           </div>
-          <h4 className="text-secondary">
+          <h4 className="text-secondary my-3">
             Do you Have a restaurent{" "}
             <a href="/admin/signup" target="_blank">
               {" "}
@@ -62,9 +62,9 @@ const FooterComponent = () => {
             by="Hungry Hub"
             year={2022}
           />
-          <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300">
+          {/* <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300">
             {id}
-          </span>
+          </span> */}
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <span className="text-secondary text-xl hover:text-black cursor-pointer  duration-300">
               <FaFacebook />

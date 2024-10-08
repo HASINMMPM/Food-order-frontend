@@ -11,7 +11,7 @@ const Banner = () => {
             <br />
             <span className="text-primary">delicious</span> desires.
           </h1>
-          <p className="text-lg font-sub-heading">
+          <p className="text-xs md:text-lg font-sub-heading">
             At Hungry Hub, we bridge the gap between your busy schedule and
             delicious desires. Our diverse menu features mouth-watering dishes
             from around the globe, crafted with the freshest ingredients.

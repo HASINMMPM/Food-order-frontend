@@ -50,33 +50,45 @@ const StandoutDishes = () => {
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToShow,
     initialSlide: 0,
-    centerMode: food.length === 1, 
+    centerMode: food.length === 1,
     responsive: [
       {
-        breakpoint: 1224,
+        breakpoint: 400, 
         settings: {
-          slidesToShow: Math.min(slidesToShow, 2),
-          slidesToScroll: Math.min(slidesToShow, 2),
-          infinite: food.length > 2,
+          slidesToShow: 1, 
+          slidesToScroll: 1,
+          infinite: food.length > 1,
+          centerMode: true,  
         },
       },
       {
         breakpoint: 800,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true, // Center the single food item on smaller screens
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: food.length > 2,
+        },
+      },
+      {
+        breakpoint: 1224,  
+        settings: {
+          slidesToShow: 3, 
+          slidesToScroll: 3,
+          infinite: food.length > 3,
         },
       },
     ],
   };
+  
+  
+  
 
   return (
     <main>
       {food.length > 0 ? (
         <section className="mysection">
           <div className="flex justify-center">
-            <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-4">
+            <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
               Customers Favorites
             </span>
           </div>
@@ -93,7 +105,7 @@ const StandoutDishes = () => {
             ) : (
               <div className="">
                 <div className="flex flex-row pt-10 justify-between items-center px-10">
-                  <h3 className="text-primary text-3xl font-semibold font-sub-heading capitalize text-start">
+                  <h3 className="text-primary text-xl md:text-3xl font-semibold font-sub-heading capitalize text-start">
                     StandOut Dishes
                   </h3>
                   <div className="flex flex-row gap-6">
