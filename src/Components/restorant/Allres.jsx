@@ -22,7 +22,8 @@ const Allres = () => {
           <h3 className="text-center font-sub-heading font-bold text-xl md:text-3xl text-primary py-4">
             All Restaurant{" "}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {loading ? (
               <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
                 <div></div>
@@ -31,10 +32,9 @@ const Allres = () => {
                 <div></div>
               </div>
             ) : currentItems.length ? (
-              currentItems.map((res, i) => (
-                <Link to={`/restaurant/${res._id}`}>
+              currentItems.map((res) => (
+                <Link to={`/restaurant/${res._id}`} key={res._id}>
                   <div
-                    key={res._id}
                     className="transition hover:bg-secondary ease-in-out delay-150 cursor-pointer rounded-xl  hover:scale-105 border-0 md:border-r-4 border-gray-200 duration-300 card bg-white text-black p-6 md:w-[28rem] hover:shadow-xl"
                   >
                     <figure>

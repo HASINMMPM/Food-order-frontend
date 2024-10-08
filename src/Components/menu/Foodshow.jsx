@@ -11,7 +11,7 @@ const Foodshow = () => {
   const [loading, setLoading] = useState(true);
   const [foods, setFoods] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(12);
+  const [itemsPerPage] = useState(8);
   const { URL } = useContext(ContextList);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const Foodshow = () => {
             )}
           </div>
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {loading ? (
               <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
                 <div></div>

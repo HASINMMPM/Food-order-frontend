@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import img from "/coupen.jpg"
 
 const CoupenBanner = () => {
-  const [coupen, setCoupen] = useState([]);  // Initialize as an array
+  const [coupen, setCoupen] = useState([]);  
   const { URL } = useContext(ContextList);
 
   useEffect(() => {
@@ -15,13 +15,13 @@ const CoupenBanner = () => {
         const response = await fetch(`${URL}/coupon/all`);
         const data = await response.json();
         console.log(data);
-        setCoupen(data);  // Set the fetched data
+        setCoupen(data);  
       } catch (error) {
         console.error("Error:", error);
       }
     };
     fetchCoupen();
-  }, [URL]);  // Add URL to dependencies
+  }, [URL]);  
 
   const copyToClipboard = (code) => {
     navigator.clipboard.writeText(code).then(() => {
@@ -52,15 +52,15 @@ const CoupenBanner = () => {
       {coupen.length > 0 ? (
         <Slider {...settings}>
           {coupen.map((coupon, index) => (
-            <div key={index} className=" bg-primary text-white px-4  w-full">
+            <div key={index} className="bg-primary banner-bg text-white   w-full">
               <div className="flex flex-row justify-between items-center gap-2">
-                <img className="object-cover h-48 p-0" src={img} alt="" />
-                <div className="flex flex-col items-start md:p-14 gap-4 justify-center">
-                  <h1 className="text-lg md:text-xl font-thin">
+                
+                <div className="flex flex-col items-start py-14 px-6  mx-auto gap-4 justify-center">
+                  <h1 className="text-lg md:text-xl font-semibold">
                     Limited Time Offer! Unlock an exclusive{" "}
-                    <span className="text-black md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
+                    <span className="text-danger text-2xl md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
                     on your next order! Use code{" "}
-                    <span className="text-black md:text-3xl font-bold">{coupon.code}</span> now.
+                    <span className="text-danger text-2xl md:text-3xl font-bold">{coupon.code}</span> now.
                   </h1>
                   <p className="text-sm md:text-lg italic">
                     Hurry! This offer won't last long. Enjoy delicious savings today!

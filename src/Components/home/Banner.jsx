@@ -6,12 +6,12 @@ const Banner = () => {
     <section className="py-12">
       <div className="flex flex-col-reverse md:flex-row gap-4 ">
         <div className="w-full md:w-1/2 flex flex-col gap-4 justify-center ">
-          <h1 className="text-6xl font-heading ">
+          <h1 className="text-4xl md:text-6xl font-heading ">
             Busy schedules,
             <br />
             <span className="text-primary">delicious</span> desires.
           </h1>
-          <p className="text-xs md:text-lg font-sub-heading">
+          <p className="text-xs md:text-lg font-sub-heading typing">
             At Hungry Hub, we bridge the gap between your busy schedule and
             delicious desires. Our diverse menu features mouth-watering dishes
             from around the globe, crafted with the freshest ingredients.
