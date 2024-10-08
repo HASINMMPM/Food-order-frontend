@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Order = () => {
   const { id, URL, token } = useContext(ContextList);
   const [order, setOrder] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const cancelFunc = async (orderId) => {
     try {
@@ -39,6 +40,7 @@ const Order = () => {
       );
 
       setOrder(orderById);
+      setLoading(false);
       console.log(order);
     } catch (error) {
       console.log(error);
@@ -49,6 +51,19 @@ const Order = () => {
     fetchOrder();
   }, [id, URL, token]);
 
+  if (loading) {
+    return (
+      <div className="flex justify-center">
+        <div className="lds-ellipsis flex justify-center items-center text-primary w-full">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <main className="max-w-screen-2xl container mx-auto">
       <h1 className="text-primary text-2xl md:text-4xl text-center py-8 font-heading">
@@ -57,7 +72,6 @@ const Order = () => {
 
       {order.length > 0 ? (
         <>
-         
           <table className="table text-lg w-full py-16 hidden md:block ">
             <thead>
               <tr className="text-md  lg:text-xl">
@@ -71,11 +85,12 @@ const Order = () => {
             </thead>
             <tbody className="my-4">
               {order.map((order) => (
-                <tr key={order._id} className={`${
-                  order.status === "delivered"
-                    ? "bg-secondary"
-                    : ""
-                } border-2 border-black`}>
+                <tr
+                  key={order._id}
+                  className={`${
+                    order.status === "delivered" ? "bg-secondary" : ""
+                  } border-2 border-black`}
+                >
                   <td className="w-[20%]">
                     <img
                       className=" w-full  aspect-square  object-cover"
@@ -119,7 +134,7 @@ const Order = () => {
                           ? "bg-gray-400 cursor-not-allowed"
                           : "bg-red-700 hover:bg-danger"
                       } font-sm text-white p-2 duration-300`}
-                      disabled={order.status !== "pending"} 
+                      disabled={order.status !== "pending"}
                     >
                       Cancel Order
                     </button>
@@ -133,11 +148,13 @@ const Order = () => {
 
           <div className="block md:hidden">
             {order.map((order) => (
-              <div className={`${
-                      order.status === "pending"
-                        ? "border-2 border-primary"
-                        : "bg-secondary "
-                    } p-4 flex flex-col gap-2 justify-between items-start border-2  my-4`}>
+              <div key={order._id}
+                className={`${
+                  order.status === "pending"
+                    ? "border-2 border-primary"
+                    : "bg-secondary "
+                } p-4 flex flex-col gap-2 justify-between items-start border-2  my-4`}
+              >
                 <div
                   key={order._id}
                   className="flex justify-between items-center  w-full"
@@ -157,29 +174,31 @@ const Order = () => {
                     )}
                   </div>
                   <span>
-                    Items quantity:{" "}
+                    Items:
                     <span className="font-bold"> {order.items.length}</span>
                   </span>
                   <span> ₹{order.amount}</span>
                 </div>
-                <span className={`${
-                      order.status === "pending"
-                        ? "text-red-600"
-                        : "bg-primary text-secondary px-2"
-                    } font-sm font-bold mx-auto  duration-300`}>
+                <span
+                  className={`${
+                    order.status === "pending"
+                      ? "text-red-600"
+                      : "bg-primary text-secondary px-2"
+                  } font-sm font-bold mx-auto  duration-300`}
+                >
                   <i>{order.status}</i>
                 </span>
                 <button
-                      onClick={() => cancelFunc(order._id)}
-                      className={`${
-                        order.status !== "pending"
-                          ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-red-700 hover:bg-danger"
-                      } font-sm text-white p-2 duration-300 w-full`}
-                      disabled={order.status !== "pending"} 
-                    >
-                      Cancel Order
-                    </button>
+                  onClick={() => cancelFunc(order._id)}
+                  className={`${
+                    order.status !== "pending"
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-red-700 hover:bg-danger"
+                  } font-sm text-white p-2 duration-300 w-full`}
+                  disabled={order.status !== "pending"}
+                >
+                  Cancel Order
+                </button>
               </div>
             ))}
           </div>
