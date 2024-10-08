@@ -105,7 +105,7 @@ const AdminSignup = () => {
         timer: 3000,
         showConfirmButton: true,
       });
-      window.location.replace("http://localhost:5174/");
+      window.location.replace("https://capston-admin-food-del.onrender.com");
     } catch (error) {
       console.log(error);
       Swal.fire({

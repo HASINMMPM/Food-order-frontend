@@ -7,7 +7,7 @@ const RestorantCard = ({ restaurant }) => {
       <Link to={`restaurant/${restaurant._id}`}>
         <div className=" transition hover:bg-secondary ease-in-out delay-150 cursor-pointer   rounded-xl hover:-translate-y-1  hover:scale-105 border-0 md:border-r-4 border-gray-200 duration-300  card bg-white text-black p-6  md:w-[28rem] hover:shadow-xl">
           <figure>
-            <img src={restaurant.Image} alt={restaurant.name}  className="bg-yellow bgshaper  bg-slate-950  lg:h-80 bg-cover w-full"/>
+            <img src={restaurant.Image} alt={restaurant.name}  className="bgshaper  bg-slate-950  lg:h-80 bg-cover w-full"/>
           </figure>
           <div className="py-4">
             <h2 className="card-title">{restaurant.Title}</h2>

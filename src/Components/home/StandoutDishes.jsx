@@ -98,13 +98,13 @@ const StandoutDishes = () => {
                   </h3>
                   <div className="flex flex-row gap-6">
                     <button
-                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-lg md:text-4xl"
                       onClick={previous}
                     >
                       <GrFormPrevious />
                     </button>
                     <button
-                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-4xl"
+                      className="bg-primary hover:bg-transparent border-2 border-transparent hover:border-black hover:text-black text-secondary rounded-full text-lg md:text-4xl"
                       onClick={next}
                     >
                       <MdOutlineNavigateNext />
