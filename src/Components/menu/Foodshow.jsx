@@ -56,9 +56,9 @@ const Foodshow = () => {
 
     return (
       <div>
-        <div>
+        <div> 
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-          <div className="grid grid-cols-4 gap-5 md:gap-0 md:grid-cols-8 lg:grid-cols-10 py-2">
+          <div className="grid grid-cols-3 gap-5 md:gap-0 md:grid-cols-6 lg:grid-cols-10 py-2">
             {loading ? (
               <p>Categories Loading...</p>
             ) : (
@@ -77,8 +77,8 @@ const Foodshow = () => {
                     alt={item.name}
                     className={
                       selectedCategory === item._id
-                        ? "border-4 p-0.5 border-primary object-fit h-20 w-20 rounded-full"
-                        : "object-fit h-20 w-20 rounded-full"
+                        ? "border-4 p-0.5 border-primary object-cover h-20 w-20 rounded-full"
+                        : "object-coever h-20 w-20 rounded-full"
                     }
                   />
                   <h2>{item.name}</h2>
@@ -87,7 +87,7 @@ const Foodshow = () => {
             )}
           </div>
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-4 ">
             {loading ? (
               <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
                 <div></div>
