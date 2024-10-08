@@ -17,7 +17,7 @@ const Order = () => {
       Swal.fire({
         title: "Order Cancelled",
         text: "Your order has been cancelled successfully.",
-        icon: "info",
+        icon: "success",
       });
 
       // Refresh the orders without reloading the page

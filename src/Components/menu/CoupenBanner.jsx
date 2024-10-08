@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { ContextList } from "../commen/ContextListProvider";
 import { FaCopy } from "react-icons/fa";
 import Swal from "sweetalert2";
-import img from "/coupen.jpg"
+
 
 const CoupenBanner = () => {
   const [coupen, setCoupen] = useState([]);  
@@ -58,9 +58,9 @@ const CoupenBanner = () => {
                 <div className="flex flex-col items-start py-14 px-6  mx-auto gap-4 justify-center">
                   <h1 className="text-lg md:text-xl font-semibold">
                     Limited Time Offer! Unlock an exclusive{" "}
-                    <span className="text-danger text-2xl md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
+                    <span className="px-2 bg-secondary text-primary text-2xl md:text-3xl font-bold">{coupon.discount}% OFF</span><br />
                     on your next order! Use code{" "}
-                    <span className="text-danger text-2xl md:text-3xl font-bold">{coupon.code}</span> now.
+                    <span className="px-2 bg-secondary text-primary text-2xl md:text-3xl font-bold">{coupon.code}</span> now.
                   </h1>
                   <p className="text-sm md:text-lg italic">
                     Hurry! This offer won't last long. Enjoy delicious savings today!
