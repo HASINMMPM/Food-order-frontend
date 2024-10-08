@@ -119,7 +119,7 @@ const Order = () => {
                           ? "bg-gray-400 cursor-not-allowed"
                           : "bg-red-700 hover:bg-danger"
                       } font-sm text-white p-2 duration-300`}
-                      disabled={order.status !== "pending"} // Disable button if status is not "pending"
+                      disabled={order.status !== "pending"} 
                     >
                       Cancel Order
                     </button>
@@ -130,9 +130,14 @@ const Order = () => {
           </table>
 
           {/* Mobile view */}
+
           <div className="block md:hidden">
             {order.map((order) => (
-              <div className="bg-secondary p-4 flex flex-col justify-between items-start border-2 border-primary my-4">
+              <div className={`${
+                      order.status === "pending"
+                        ? "border-2 border-primary"
+                        : "bg-secondary "
+                    } p-4 flex flex-col gap-2 justify-between items-start border-2  my-4`}>
                 <div
                   key={order._id}
                   className="flex justify-between items-center  w-full"
@@ -157,15 +162,24 @@ const Order = () => {
                   </span>
                   <span> ₹{order.amount}</span>
                 </div>
-                <span className="font-bold mx-auto">
+                <span className={`${
+                      order.status === "pending"
+                        ? "text-red-600"
+                        : "bg-primary text-secondary px-2"
+                    } font-sm font-bold mx-auto  duration-300`}>
                   <i>{order.status}</i>
                 </span>
                 <button
-                  onClick={() => cancelFunc(order._id)}
-                  className="bg-red-700 text-white p-2 mt-2 w-full"
-                >
-                  Cancel Order
-                </button>
+                      onClick={() => cancelFunc(order._id)}
+                      className={`${
+                        order.status !== "pending"
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-red-700 hover:bg-danger"
+                      } font-sm text-white p-2 duration-300 w-full`}
+                      disabled={order.status !== "pending"} 
+                    >
+                      Cancel Order
+                    </button>
               </div>
             ))}
           </div>
