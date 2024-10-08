@@ -49,13 +49,13 @@ const Home = () => {
 
       <form
         onSubmit={commentHandler}
-        className="h-10 flex flex-col md:flex-row gap-2 mt-3"
+        className=" flex flex-col md:flex-row gap-2 mt-3"
       >
         <textarea
           value={comment} 
           onChange={(e) => setComment(e.target.value)} 
           placeholder="Leave a comment"
-          className="w-3/4"
+          className="w-full md:w-3/4 "
           disabled={!token} 
         />
         <button

@@ -37,8 +37,8 @@ const Custemerreview = () => {
       {reviews.length > 0 ? (
         <section className="mysection ">
           <div className="flex justify-center items-center">
-            <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-6">
-              Voices of Satisfaction
+          <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
+          Voices of Satisfaction
             </span>
           </div>
           <div className="flex flex-col md:flex-row mt-6 gap-4">

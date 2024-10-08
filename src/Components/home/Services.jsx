@@ -31,8 +31,8 @@ const Services = () => {
   return (
     <section className="mysection bg-secondary">
       <div className="flex justify-center items-center">
-        <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xl text-center font-semibold py-6">
-          Our Survices
+      <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
+      Our Survices
         </span>
       </div>
       <div className="grid grid-cols-1   place-items-center md:grid-cols-2 px-16 gap-8  ">
@@ -49,7 +49,7 @@ const Services = () => {
               />
             </div>
             <div className="">
-              <h5 className="font-semibold text-md md:text-lg">
+              <h5 className="font-semibold text-lg md:text-xl underline underline-offset-2 md:no-underline">
                 {service.title}
               </h5>
               <p className="text-md md:text-lg">{service.description}</p>

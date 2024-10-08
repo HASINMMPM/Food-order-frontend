@@ -44,10 +44,10 @@ const FoodCard = ({ dishes }) => {
               {dishes.title}
             </h3>
             {restaurant && (
-              <>
+              <div className="flex flex-col gap-1 text-[14px] md:text-xl">
                 <span className="font-semibold">{restaurant.Title}</span>
                 <span>{restaurant.Place}</span>
-              </>
+              </div>
             )}
           </div>{" "}
         </Link>
@@ -59,7 +59,7 @@ const FoodCard = ({ dishes }) => {
           </Link>
 
           <button
-            className="bg-primary w-full md:w-auto flex flex-row items-center justify-center text-sm md:text-lg p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
+            className="bg-primary w-full md:w-auto flex flex-row items-center justify-center text-xs md:text-lg p-2 rounded-lg text-white hover:text-primary hover:bg-secondary hover:border-2 border-primary"
             onClick={() => {
               addToCart(dishes._id);
             }}
