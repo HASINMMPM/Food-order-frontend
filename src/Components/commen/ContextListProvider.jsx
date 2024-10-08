@@ -31,7 +31,7 @@ const ContextListProvider = ({ children }) => {
       try {
         const decoded = jwtDecode(cookieToken); // Decode the JWT token
         setId(decoded.id); // Set the decoded ID to state
-        console.log("Decoded ID in fetchId:", decoded.id);
+        // console.log("Decoded ID in fetchId:", decoded.id);
       } catch (error) {
         console.error("Error decoding token:", error);
       }
@@ -94,7 +94,7 @@ const ContextListProvider = ({ children }) => {
       try {
         const response = await axios.get(cartURL, { headers: { token } });
         setCartItems(response.data.cartData || {});
-        console.log("Cart data fetched:", response.data.cartData);
+        // console.log("Cart data fetched:", response.data.cartData);
         calculateAmountToPay();
       } catch (error) {
         console.error("Error fetching cart data:", error);

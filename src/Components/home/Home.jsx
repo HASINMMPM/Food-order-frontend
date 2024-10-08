@@ -10,14 +10,11 @@ import Swal from "sweetalert2";
 
 const Home = () => {
   const { URL, token } = useContext(ContextList);
-  const [comment, setComment] = useState(""); // Track comment input
-  const [errorMessage, setErrorMessage] = useState(""); // Track any errors
+  const [comment, setComment] = useState(""); 
+  const [errorMessage, setErrorMessage] = useState(""); 
 
   const commentHandler = async (e) => {
-    e.preventDefault(); // Prevent form submission
-
-  
-
+    e.preventDefault(); 
     try {
       const response = await axios.post(
         `${URL}/add/comment`,
@@ -34,8 +31,8 @@ const Home = () => {
         icon: "success",
         timer: 1000,
       });
-      setComment(""); // Clear comment input after successful submission
-      setErrorMessage(""); // Clear any errors
+      setComment("");
+      setErrorMessage("");
     } catch (error) {
       console.log(error);
       setErrorMessage(error.response.data.error)

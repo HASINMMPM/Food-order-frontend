@@ -13,7 +13,7 @@ const Toprestorant = () => {
   const [loading, setLoading] = useState(true);
   const { URL } = useContext(ContextList);
 
-  const resURL = `${URL}/v1/restuarant/allrestaurant`;
+  const resURL = `${URL}/restuarant/allrestaurant`;
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
