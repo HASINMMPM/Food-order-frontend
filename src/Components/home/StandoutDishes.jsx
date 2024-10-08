@@ -4,9 +4,8 @@ import { GrFormPrevious } from "react-icons/gr";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState, useRef ,useContext } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-// import FoodCerd from "./FoodCerd";
 import FoodCard from "./FoodCerd";
 import { ContextList } from "../commen/ContextListProvider";
 
