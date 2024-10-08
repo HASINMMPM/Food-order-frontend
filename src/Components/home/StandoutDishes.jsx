@@ -4,7 +4,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef ,useContext } from "react";
 import axios from "axios";
 // import FoodCerd from "./FoodCerd";
 import FoodCard from "./FoodCerd";
@@ -19,7 +19,9 @@ const StandoutDishes = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
+
         const response = await axios.get(`${URL}/food/allfood`);
+
         const data = response.data;
         const topFood = data.filter((filterdfood) => filterdfood.isPopular === true);
         setFood(topFood);
