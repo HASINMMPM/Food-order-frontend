@@ -41,7 +41,7 @@ const Order = () => {
 
       setOrder(orderById);
       setLoading(false);
-      console.log(order);
+      console.log("order",order);
     } catch (error) {
       console.log(error);
     }
@@ -133,7 +133,7 @@ const Order = () => {
                         order.status !== "pending"
                           ? "bg-gray-400 cursor-not-allowed"
                           : "bg-red-700 hover:bg-danger"
-                      } font-sm text-white p-2 duration-300`}
+                      } text-sm lg:text-lg text-white p-2 duration-300`}
                       disabled={order.status !== "pending"}
                     >
                       Cancel Order
