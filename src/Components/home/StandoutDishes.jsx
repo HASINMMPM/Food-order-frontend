@@ -77,8 +77,8 @@ const StandoutDishes = () => {
   return (
     <main>
       {food.length > 0 ? (
-        <section className="mysection">
-          <div className="flex justify-center">
+        <section className="mysection bg-secondary">
+          <div className="flex justify-center ">
             <span className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
               Customers Favorites
             </span>

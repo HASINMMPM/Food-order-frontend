@@ -29,7 +29,7 @@ const FoodCard = ({ dishes }) => {
 
   return (
     <article className="">
-      <div className="relative  m-10 w-full  max-w-xs overflow-hidden rounded-lg bg-secondary hover:scale-105 hover:-translate-y-1 duration-300 py-2 px-2 shadow-md">
+      <div className="relative  m-10 w-full  max-w-xs overflow-hidden rounded-lg bg-white hover:scale-105 hover:-translate-y-1 duration-300 py-2 px-2 shadow-md">
         <Link to={`/dishes/${dishes._id}`}>
           <img
             className="aspect-square w-full rounded-t-lg object-cover"
