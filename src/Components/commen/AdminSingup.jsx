@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,34 +7,35 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { ContextList } from "./ContextListProvider";
 
-
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
+const otpSchema = yup
+  .object({
+    email: yup.string().required("Email is required").email("Invalid email"),
+  })
+  .required();
 
-const otpSchema = yup.object({
-  email: yup.string().required("Email is required").email("Invalid email"),
-}).required();
-
-
-const signupSchema = yup.object({
-  fullName: yup.string().required("Full name is required"),
-  email: yup.string().required("Email is required").email("Invalid email"),
-  password: yup
-    .string()
-    .required("Password is required")
-    .matches(
-      passwordRegex,
-      "Password must include at least one uppercase letter, one lowercase letter, and one number"
-    ),
-  otp: yup.string().required("OTP is required"),
-}).required();
+const signupSchema = yup
+  .object({
+    fullName: yup.string().required("Full name is required"),
+    email: yup.string().required("Email is required").email("Invalid email"),
+    password: yup
+      .string()
+      .required("Password is required")
+      .matches(
+        passwordRegex,
+        "Password must include at least one uppercase letter, one lowercase letter, and one number"
+      ),
+    otp: yup.string().required("OTP is required"),
+  })
+  .required();
 
 const AdminSignup = () => {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(<EyeIcon />);
   const [otpsend, setOtpsend] = useState(false);
   const { URL } = useContext(ContextList);
-  const [email,setEmail] =useState("")
+  const [email, setEmail] = useState("");
 
   const handleToggle = () => {
     setType((prevType) => (prevType === "password" ? "text" : "password"));
@@ -43,7 +43,6 @@ const AdminSignup = () => {
       prevIcon.type === EyeIcon ? <EyeOffIcon /> : <EyeIcon />
     );
   };
-
 
   const {
     register: registerOtp,
@@ -53,7 +52,6 @@ const AdminSignup = () => {
   } = useForm({
     resolver: yupResolver(otpSchema),
   });
-
 
   const {
     register: registerSignup,
@@ -68,7 +66,7 @@ const AdminSignup = () => {
   const submitOtp = async (data) => {
     console.log("OTP Form Data:", data);
     try {
-      setEmail(data.email)
+      setEmail(data.email);
       const response = await axios.post(`${URL}/otp/send`, data);
       console.log("OTP Send Response:", response);
       Swal.fire({
@@ -77,11 +75,14 @@ const AdminSignup = () => {
         timer: 3000,
         showConfirmButton: true,
       });
-      
+
       setOtpsend(true);
-      resetOtp(); 
+      resetOtp();
     } catch (error) {
-      console.log("OTP Send Error:", error.response?.data || error.message || "error");
+      console.log(
+        "OTP Send Error:",
+        error.response?.data || error.message || "error"
+      );
       Swal.fire({
         text: "OTP send failed. Please try again.",
         icon: "error",
@@ -118,7 +119,7 @@ const AdminSignup = () => {
   };
 
   const loginAdmin = () => {
-    window.location.replace("http://localhost:5174/");
+    window.location.replace("https://capston-admin-food-del.onrender.com");
   };
 
   return (
@@ -237,8 +238,15 @@ const AdminSignup = () => {
           >
             Send OTP
           </button>
+          <span
+            onClick={loginAdmin}
+            className="text-center cursor-pointer duration-300 text-black hover:text-primary "
+          >
+            I am already Registered
+          </span>
         </form>
       )}
+     
     </div>
   );
 };
