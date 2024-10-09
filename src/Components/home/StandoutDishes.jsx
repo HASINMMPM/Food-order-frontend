@@ -53,28 +53,19 @@ const StandoutDishes = () => {
     centerMode: food.length === 1,
     responsive: [
       {
-        breakpoint: 400, 
+        breakpoint: 1224,
         settings: {
-          slidesToShow: 1, 
-          slidesToScroll: 1,
-          infinite: food.length > 1,
-          centerMode: true,  
+          slidesToShow: Math.min(slidesToShow, 2),
+          slidesToScroll: Math.min(slidesToShow, 2),
+          infinite: food.length > 2,
         },
       },
       {
         breakpoint: 800,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: food.length > 2,
-        },
-      },
-      {
-        breakpoint: 1224,  
-        settings: {
-          slidesToShow: 3, 
-          slidesToScroll: 3,
-          infinite: food.length > 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
         },
       },
     ],
