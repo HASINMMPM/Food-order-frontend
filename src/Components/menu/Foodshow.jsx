@@ -78,7 +78,7 @@ const Foodshow = () => {
                     className={
                       selectedCategory === item._id
                         ? "border-4 p-0.5 border-primary object-cover h-20 w-20 rounded-full"
-                        : "object-coever h-20 w-20 rounded-full"
+                        : "object-cover h-20 w-20 rounded-full"
                     }
                   />
                   <h2>{item.name}</h2>
@@ -87,20 +87,26 @@ const Foodshow = () => {
             )}
           </div>
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-4 ">
-            {loading ? (
-              <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            ) : (
-              currentItems.map((dishes, i) => (
-                <FoodCard key={i} dishes={dishes} className='animation' />
-              ))
-            )}
-          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-4">
+  {loading ? (
+    <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  ) : currentItems.length > 0 ? (
+    currentItems.map((dishes, i) => (
+      <FoodCard key={i} dishes={dishes} className="animation" />
+    ))
+  ) : (
+   
+
+    <h1 className="text-2xl py-6 text-danger ">No items to show</h1>
+
+  )}
+</div>
+
         </div>
       </div>
     );
