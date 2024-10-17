@@ -1,11 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import Swal from "sweetalert2";
 
 export const ContextList = createContext();
 
 const ContextListProvider = ({ children }) => {
-  const URL = "https://foodorder-backend-3.onrender.com/v1";
+  // const URL = "https://foodorder-backend-3.onrender.com/v1";
+  const URL = "http://localhost:3000/v1";
   const [cartItems, setCartItems] = useState({});
   const [food, setFood] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
@@ -29,8 +31,8 @@ const ContextListProvider = ({ children }) => {
 
     if (cookieToken) {
       try {
-        const decoded = jwtDecode(cookieToken); 
-        setId(decoded.id); 
+        const decoded = jwtDecode(cookieToken);
+        setId(decoded.id);
         // console.log("Decoded ID in fetchId:", decoded.id);
       } catch (error) {
         console.error("Error decoding token:", error);
@@ -41,15 +43,26 @@ const ContextListProvider = ({ children }) => {
   };
 
   const addToCart = async (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prevItems) => ({ ...prevItems, [itemId]: 1 }));
-    } else {
-      setCartItems((prevItems) => ({
-        ...prevItems,
-        [itemId]: prevItems[itemId] + 1,
-      }));
-    }
     if (token) {
+      if (!cartItems[itemId]) {
+        Swal.fire({
+          title: "item added Successful",
+          icon: "success",
+          timer: 1000,
+        });
+        setCartItems((prevItems) => ({ ...prevItems, [itemId]: 1 }));
+      } else {
+        setCartItems((prevItems) => ({
+          ...prevItems,
+          [itemId]: prevItems[itemId] + 1,
+        }));
+        console.log(setCartItems);
+        Swal.fire({
+          title: `item added and quantity is ${cartItems[itemId] + 1}`,
+          icon: "success",
+          timer: 1000,
+        });
+      }
       try {
         await axios.post(
           `${URL}/cart/add/${id}`,
@@ -61,6 +74,12 @@ const ContextListProvider = ({ children }) => {
       } catch (error) {
         console.log("failed to add ", error);
       }
+    } else {
+      Swal.fire({
+        title: "Please Login ",
+        icon: "info",
+        timer: 1000,
+      });
     }
   };
 
@@ -70,18 +89,28 @@ const ContextListProvider = ({ children }) => {
       const updatedItems = { ...prevItems };
       if (updatedItems[itemId] > 1) {
         updatedItems[itemId] -= 1;
+        Swal.fire({
+          title: `item removed and quantity is ${cartItems[itemId] - 1}`,
+          icon: "success",
+
+          timer: 1500,
+        });
       } else {
         delete updatedItems[itemId];
+        Swal.fire({
+          title: `item Removed`,
+          icon: "success",
+          timer: 1500,
+        });
       }
       return updatedItems;
     });
-
     if (token) {
       const cartURL = `${URL}/cart/remove/${id}`;
       try {
         await axios.delete(cartURL, { data: { itemId }, headers: { token } });
         console.log("Removed from cart:", itemId);
-        calculateAmountToPay(); 
+        calculateAmountToPay();
       } catch (error) {
         console.error("Error removing from cart:", error);
       }
@@ -109,15 +138,17 @@ const ContextListProvider = ({ children }) => {
 
   const applyCoupon = async (couponCode) => {
     try {
-      const response = await axios.post(`${URL}/coupon/check`, { code: couponCode });
+      const response = await axios.post(`${URL}/coupon/check`, {
+        code: couponCode,
+      });
       if (response.data.discount) {
         setCouponDiscount(response.data.discount);
       } else {
         setCouponDiscount(0);
       }
     } catch (error) {
-      console.error('Error applying coupon:', error);
-      console.log(error.response.data)
+      console.error("Error applying coupon:", error);
+      console.log(error.response.data);
       setCouponDiscount(0);
     }
   };
@@ -131,17 +162,14 @@ const ContextListProvider = ({ children }) => {
 
     const deliveryFee = subTotal === 0 ? 0 : subTotal > 500 ? 20 : 50;
 
-   
-    setDiscountAmount ((subTotal * couponDiscount) / 100)
-    console.log(discountAmount)
+    setDiscountAmount((subTotal * couponDiscount) / 100);
+    console.log(discountAmount);
     const totalAmount = subTotal + deliveryFee - discountAmount;
 
     setSubTotal(subTotal);
     setDeliveryFee(deliveryFee);
     setAmountToPay(totalAmount);
   };
-
-  
 
   // Fetch all food items
   const fetchFood = async () => {
@@ -164,24 +192,21 @@ const ContextListProvider = ({ children }) => {
     }
   };
 
-
   useEffect(() => {
     const initializeData = async () => {
       await fetchFood();
       await fetchRestaurant();
-      fetchId(); 
+      fetchId();
     };
 
     initializeData();
   }, [token]);
-
 
   useEffect(() => {
     if (id) {
       getCartData();
     }
   }, [id, food]);
-
 
   const contextValue = {
     URL,
@@ -192,7 +217,7 @@ const ContextListProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     applyCoupon,
-    
+
     subTotal,
     deliveryFee,
     amountToPay,
