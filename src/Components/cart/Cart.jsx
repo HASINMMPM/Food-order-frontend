@@ -112,8 +112,9 @@ const Cart = () => {
             <h3>Amount to Pay</h3>
           <div className="flex flex-row gap-6">
           {discountAmount ? 
-            <span className=" text-primary">you saved {discountAmount}</span>:<></>
+           <span className=" text-primary">you saved <span className="font-bold">{discountAmount}</span></span>:<></>
           }
+          
             <span className="font-bold">{amountToPay}</span>
           </div>
           </div>

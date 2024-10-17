@@ -25,6 +25,7 @@ const CheckOut = () => {
     food,
     cartItems,
     URL,
+    discountAmount,
     token,
     id,
   } = useContext(ContextList);
@@ -179,8 +180,8 @@ const CheckOut = () => {
       <h1 className="text-2xl md:text-4xl text-primary my-8 font-bold">
         Delivery Information
       </h1>
-      <div className="flex flex-col md:flex-row md:justify-between md:gap-16">
-        <div className="w-1/2 flex flex-col">
+      <div className="flex flex-col md:flex-row md:justify-between ">
+        <div className="w-full md:w-1/2 flex flex-col">
           <form
             onSubmit={(e) => e.preventDefault()}
             className="flex flex-col gap-3 my-8"
@@ -271,23 +272,28 @@ const CheckOut = () => {
             </button>
           </form>
         </div>
-        <div className="w-1/2 flex justify-end items-end">
+        <div className="w-full flex justify-end items-end lg:w-1/2">
           <div className="w-full md:w-3/4 border-slate-300 flex flex-col gap-1 my-8">
             {/* Checkout Summary */}
             <div className="flex justify-between text-lg md:text-xl">
-              <h3>Sub Total</h3>
-              <span className="font-bold">{subTotal}</span>
-            </div>
-            <hr className="text-black" />
-            <div className="flex justify-between text-lg md:text-xl">
-              <h3>Delivery Fee</h3>
-              <span className="font-bold">{deliveryFee}</span>
-            </div>
-            <hr className="text-black" />
-            <div className="flex justify-between text-lg md:text-xl">
-              <h3>Amount to Pay</h3>
-              <span className="font-bold">{amountToPay}</span>
-            </div>
+            <h3>Sub Total</h3>
+            <span className="font-bold">{subTotal}</span>
+          </div>
+          <hr className="text-black" />
+          <div className="flex justify-between text-lg md:text-xl">
+            <h3>Delivery Fee</h3>
+            <span className="font-bold">{deliveryFee}</span>
+          </div>
+          <hr className="text-black" />
+          <div className="flex justify-between text-lg md:text-xl">
+            <h3>Amount to Pay</h3>
+          <div className="flex flex-row gap-6">
+          {discountAmount ? 
+            <span className=" text-primary">you saved <span className="font-bold">{discountAmount}</span></span>:<></>
+          }
+            <span className="font-bold">{amountToPay}</span>
+          </div>
+          </div>
           </div>
         </div>
       </div>
