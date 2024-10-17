@@ -29,8 +29,8 @@ const ContextListProvider = ({ children }) => {
 
     if (cookieToken) {
       try {
-        const decoded = jwtDecode(cookieToken); // Decode the JWT token
-        setId(decoded.id); // Set the decoded ID to state
+        const decoded = jwtDecode(cookieToken); 
+        setId(decoded.id); 
         // console.log("Decoded ID in fetchId:", decoded.id);
       } catch (error) {
         console.error("Error decoding token:", error);
@@ -81,7 +81,7 @@ const ContextListProvider = ({ children }) => {
       try {
         await axios.delete(cartURL, { data: { itemId }, headers: { token } });
         console.log("Removed from cart:", itemId);
-        calculateAmountToPay(); // Recalculate the amount to pay after removing item
+        calculateAmountToPay(); 
       } catch (error) {
         console.error("Error removing from cart:", error);
       }
@@ -102,7 +102,7 @@ const ContextListProvider = ({ children }) => {
     }
   };
 
-  // Calculate the subtotal, delivery fee, and total amount
+  // Calculate the subtotal, delivery fee, total amount
   useEffect(() => {
     calculateAmountToPay();
   }, [cartItems, addToCart]);
@@ -122,7 +122,7 @@ const ContextListProvider = ({ children }) => {
     }
   };
 
-  // Update the total calculation to apply the coupon
+  // Update total calculation to apply the coupon
   const calculateAmountToPay = () => {
     const subTotal = food.reduce((total, item) => {
       const quantity = cartItems[item._id] || 0;
@@ -164,25 +164,25 @@ const ContextListProvider = ({ children }) => {
     }
   };
 
-  // Fetch initial data on mount
+
   useEffect(() => {
     const initializeData = async () => {
       await fetchFood();
       await fetchRestaurant();
-      fetchId(); // Ensure ID is fetched here
+      fetchId(); 
     };
 
     initializeData();
-  }, [token]); // Re-run if token changes
+  }, [token]);
 
-  // Fetch cart data after id is set
+
   useEffect(() => {
     if (id) {
       getCartData();
     }
-  }, [id, food]); // Trigger when id or food is set
+  }, [id, food]);
 
-  // Context value object
+
   const contextValue = {
     URL,
     cartItems,
