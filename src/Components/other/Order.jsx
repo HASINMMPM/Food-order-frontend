@@ -65,14 +65,14 @@ const Order = () => {
   }
 
   return (
-    <main className="max-w-screen-2xl container mx-auto">
+    <main className=" container mx-auto">
       <h1 className="text-primary text-2xl md:text-4xl text-center py-8 font-heading">
         Order History
       </h1>
 
       {order.length > 0 ? (
         <>
-          <table className="table text-lg w-full py-16 hidden md:block ">
+          <table className="table text-lg w-full py-16  z-40 ">
             <thead>
               <tr className="text-md  lg:text-xl">
                 <th>Image</th>
@@ -93,7 +93,7 @@ const Order = () => {
                 >
                   <td className="w-[20%]">
                     <img
-                      className=" w-full  aspect-square  object-cover"
+                      className=" w-full  aspect-square p-4 object-cover"
                       src={order.items[0].image}
                       alt={order.items[0].title}
                     />
@@ -146,7 +146,7 @@ const Order = () => {
 
           {/* Mobile view */}
 
-          <div className="block md:hidden">
+          <div className="visible md:invisible">
             {order.map((order) => (
               <div key={order._id}
                 className={`${
