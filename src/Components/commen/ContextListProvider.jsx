@@ -143,6 +143,12 @@ const ContextListProvider = ({ children }) => {
       });
       if (response.data.discount) {
         setCouponDiscount(response.data.discount);
+        Swal.fire({
+          title: `Congratulations! 🎉`, 
+          text: `You saved ₹${discountAmount} on your order!`, 
+          icon: "success",
+          timer: 2500, 
+        });
       } else {
         setCouponDiscount(0);
       }
@@ -150,6 +156,11 @@ const ContextListProvider = ({ children }) => {
       console.error("Error applying coupon:", error);
       console.log(error.response.data);
       setCouponDiscount(0);
+      Swal.fire({
+        title: "Invalid coupon code",
+        icon: "info",
+        timer: 1000,
+      });
     }
   };
 
