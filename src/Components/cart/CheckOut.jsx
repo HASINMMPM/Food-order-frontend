@@ -109,7 +109,7 @@ const CheckOut = () => {
             Swal.fire({
               title: "Confirm Order",
               text: "Your payment was successful! Confirm to save your order.",
-              icon: "success",
+              icon: "question",
               showCancelButton: true,
               confirmButtonColor: "#3085d6",
               cancelButtonColor: "#d33",
