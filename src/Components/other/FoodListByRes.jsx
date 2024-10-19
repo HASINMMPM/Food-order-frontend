@@ -41,22 +41,32 @@ const FoodByres = () => {
 
     return (
       <div>
-        <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {loading ? (
-            <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          ) : (
-            currentItems.map((dishes, i) => (
-              <FoodCard key={i} dishes={dishes} className="animation" />
-            ))
-          )}
-        </div>
-      </div>
+      <hr className="border-2 border-black my-8" />
+
+  
+      {currentItems.length === 0 ? (<></>):
+            (<div className="flex flex-col justify-center items-center">
+              <h2 className="uppercase text-red-700 tracking-widest font-super-sub-font text-xs md:text-xl text-center font-semibold py-4">
+              Tempting Treats Await
+              </h2>
+              <p className="font-semibold py-2">
+              Dive into a world of flavors, with dishes crafted to satisfy every craving and delight your senses
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-6">
+                {currentItems.length > 0 ? (
+                  currentItems.map((dishes, i) => (
+                    <FoodCard key={i} dishes={dishes} className="animation" />
+                  ))
+                ) : (
+                  <p>No related foods found.</p>
+                )}
+              </div>
+            </div>)
+          
+          }
+    </div>
+    
     );
   }
 

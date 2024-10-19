@@ -11,7 +11,7 @@ const FoodCard = ({ dishes }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resId = dishes.restaurant; // This should be a single ObjectID now
+        const resId = dishes.restaurant;
         const response = await axios.get(
           `${URL}/restuarant/restuarant/${resId}`
         );
