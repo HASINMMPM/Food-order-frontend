@@ -28,7 +28,7 @@ const SingleRes = () => {
       {!token ? (
         <ProtectRouter />
       ) : (
-        <>
+        <main className="">
           {singleRes && (
             <div className="flex flex-col gap-3 md:flex-row bg-secondary rounded-none md:rounded-3xl p-4 justify-center items-center">
               <div className="w-full md:w-1/4 object-cover">
@@ -44,7 +44,7 @@ const SingleRes = () => {
             </div>
           )}
           <FoodByres />
-        </>
+        </main>
       )}
     </div>
   );

@@ -126,7 +126,7 @@ const SingleFood = () => {
                 Discover other delicious options from our menu.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-3  gap-4 mt-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
                 {catByFood.length > 0 ? (
                   catByFood.map((dishes, i) => (
                     <FoodCard key={i} dishes={dishes} className="animation" />
