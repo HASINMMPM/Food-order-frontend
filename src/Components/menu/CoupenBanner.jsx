@@ -40,7 +40,7 @@ const CoupenBanner = () => {
 
   var settings = {
     dots: false,
-    infinite: true,
+    infinite:  coupen.length > 1,
     autoplaySpeed: 5000,
     autoplay: true,
     pauseOnHover: true,
