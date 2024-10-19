@@ -1,52 +1,96 @@
 [
   {
-    "_id": { "$oid": "66baabcdde493383c841ade1" },
-    "title": "Puttu and Kadala Curry",
-    "price": { "$numberInt": "100" },
-    "description": "Steamed rice cake served with black chickpea curry, a traditional Kerala breakfast combination.",
-    "image": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6xDbJ46WdVvVO_7P7F19YjKNpGeXLXm2xw&s",
-    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-    "__v": { "$numberInt": "0" }
+    "_id": { "$oid": "66c329ec905aba82e75a856f" },
+    "title": "Cucumber Melon Refresher",
+    "restaurant": { "$oid": "66e251a164fcf451f75ec2b1" },
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://thegirlonbloor.com/wp-content/uploads/2016/06/Watermelon-Cucumber-Mojitos-1.jpg",
+    "description": "A cool and refreshing juice with a blend of cucumber and melon, perfect for hot days.",
+    "isPopular": true,
+    "price": { "$numberInt": "180" }
   },
+
   {
-    "_id": { "$oid": "66baabcdde493383c841ade2" },
-    "title": "Idiyappam and Egg Curry",
-    "price": { "$numberInt": "120" },
-    "description": "Soft rice noodles served with spicy egg curry, a staple breakfast in Kerala households.",
-    "image": "https://www.sailusfood.com/wp-content/uploads/2012/11/egg-curry-kerala-style.jpg",
-    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-    "__v": { "$numberInt": "0" }
+    "_id": { "$oid": "66c329ec905aba82e75a8572" },
+    "title": "Kiwi Pineapple Punch",
+    "restaurant": { "$oid": "66e251a164fcf451f75ec2b1" },
+    "categories": ["66ba2022f063ee4e9e2cf9c6"],
+    "image": "https://static.toiimg.com/thumb/64961851.cms?imgsize=529314&width=800&height=800",
+    "description": "A refreshing juice combining kiwi and pineapple for a tropical and tangy treat.",
+    "isPopular": false,
+    "price": { "$numberInt": "180" }
   },
+
   {
-    "_id": { "$oid": "66b3809e9b9ee2fab81c62cd" },
-    "title": "Appam and Stew",
-    "price": { "$numberInt": "140" },
-    "description": "Soft and fluffy appam served with a mild and flavorful vegetable stew, a classic breakfast choice in Kerala.",
-    "image": "https://www.pepperdelight.com/wp-content/uploads/2019/06/pepper-delight-kerala-mutton-stew-3.jpg",
-    "categories": [{ "$oid": "66b6bbfb3f0a0d158b226db0" }],
-    "restaurant": { "$oid": "66ab7115d8fccb32bc533a10" },
-    "__v": { "$numberInt": "0" }
-  },
-  {
-    "_id": { "$oid": "66c329ec905aba82e75a8567" },
-    "title": "Chicken Mandhi",
-    "restaurant": [{ "$oid": "66ab705945f5f2b0683bd5a2" }],
-    "categories": [{ "$oid": "66b2fcc5a37c99612e6083a6" }],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1722417194/ianp2qrmanq74pk3rzfu.jpg",
-    "description": "Mandhi is a traditional Yemeni dish and it's very popular among all the Arab countries. Mandhi is usually made from rice, meat and a mixture of spices. Traditionally Mandhi is cooked in a tandoo",
+    "_id": { "$oid": "66c329ec905aba82e75a8575" },
+    "title": "Cauliflower Rice Stir Fry",
+    "restaurant": { "$oid": "6711f7cb3fd0cf25723d502a" },
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://chefsavvy.com/wp-content/uploads/cauliflower-fried-rice01.jpg",
+    "description": "A stir fry made with cauliflower rice, bell peppers, snap peas, and a soy-ginger sauce. Low in calories but full of flavor.",
     "isPopular": true,
     "price": { "$numberInt": "180" }
   },
   {
-    "_id": { "$oid": "66c329ec905aba82e75a856c" },
-    "title": "Ghee Rice",
-    "restaurant": { "$oid": "66ab705945f5f2b0683bd5a2" },
-    "categories": [{ "$oid": "66b2fcc5a37c99612e6083a6" }],
-    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1723092075/anpl5txzcw3hxpr62bah.jpg",
-    "description": "a balanced meal that offers the proteins, fats, and carbohydrates required for daily activities",
+    "_id": { "$oid": "66c329ec905aba82e75a8577" },
+    "title": "Quinoa Salad with Lemon Vinaigrette",
+    "restaurant": "6711f7cb3fd0cf25723d502a",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://audreythenafoodgoddess.com/wp-content/uploads/2022/09/1253_edited_opt.jpg",
+    "description": "A light and refreshing quinoa salad with cherry tomatoes, cucumbers, and a lemon vinaigrette.",
+    "isPopular": false,
+    "price": { "$numberInt": "150" }
+  },
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a8578" },
+    "title": "Vegan Tofu Stir Fry",
+    "restaurant": "6711f7cb3fd0cf25723d502a",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT74BtPokN2GPLB4nqQcMriXchfwr0niHWKw&s",
+    "description": "A hearty stir fry with tofu, bell peppers, broccoli, and a spicy ginger-garlic sauce.",
+    "isPopular": true,
+    "price": { "$numberInt": "90" }
+  },
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a8579" },
+    "title": "Avocado Toast with Tomato",
+    "restaurant": "6711f7cb3fd0cf25723d502a",
+    "categories": ["66b6bb133f0a0d158b226dae"],
+    "image": "https://foolproofliving.com/wp-content/uploads/2017/12/Greek-Yogurt-Parfait-with-fruit-600x600.jpg",
+    "description": "Classic avocado toast topped with ripe tomatoes, a sprinkle of sea salt, and a drizzle of olive oil.",
+    "isPopular": true,
+    "price": { "$numberInt": "80" }
+  },
+
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a8570" },
+    "title": " Chocolate Cake",
+    "restaurant": { "$oid": "66b3809e9b9ee2fab81c62cd" },
+    "categories": ["67122d852de24a69c6d1fe57"],
+    "image": "https://scientificallysweet.com/wp-content/uploads/2020/09/IMG_4117-feature.jpg",
+    "description": "A rich and flavorful juice made with pure pomegranate, offering a deep red color and sweet taste.",
     "isPopular": false,
     "price": { "$numberInt": "180" }
+  },
+  {
+    "_id": { "$oid": "66c329ec905aba82e75a8573" },
+    "title": "Blueberry Cake",
+    "restaurant": { "$oid": "66b3809e9b9ee2fab81c62cd" },
+    "categories": ["67122d852de24a69c6d1fe57"],
+    "image": "https://shreemsweetsandbakery.com/wp-content/uploads/2021/02/Blueberry-Cake-600x600.jpg",
+    "description": "A creamy juice blending ripe mangoes and bananas for a rich and tropical flavor.",
+    "isPopular": false,
+    "price": { "$numberInt": "180" }
+  },
+  {
+    "_id": { "$oid": "6710aec8d0ae13d41bc197bf" },
+    "title": "red forest",
+    "price": { "$numberInt": "360" },
+    "description": "its",
+    "image": "http://res.cloudinary.com/dytr4lpxm/image/upload/v1729146567/ncugubhteid6tm0r2o5o.jpg",
+    "categories": ["67122d852de24a69c6d1fe57"],
+    "restaurant": { "$oid": "66b3809e9b9ee2fab81c62cd" },
+    "isPopular": false,
+    "__v": { "$numberInt": "0" }
   }
 ]

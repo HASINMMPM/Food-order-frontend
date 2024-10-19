@@ -3,12 +3,32 @@ import { ContextList } from "../commen/ContextListProvider";
 import { useContext } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { MdDelete } from "react-icons/md";
 
 const Order = () => {
   const { id, URL, token } = useContext(ContextList);
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+  const fetchOrder = async () => {
+    try {
+      const orderResponse = await axios.get(`${URL}/get/order`, {
+        headers: { token },
+      });
+      const orders = orderResponse.data;
+      const orderById = orders.filter(
+        (orderMyself) => orderMyself.userId === id
+      );
+
+      setOrder(orderById);
+      setLoading(false);
+      
+      console.log("order", order);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const cancelFunc = async (orderId) => {
     try {
       await axios.delete(`${URL}/order/cancel/${orderId}`, {
@@ -29,27 +49,40 @@ const Order = () => {
     }
   };
 
-  const fetchOrder = async () => {
-    try {
-      const orderResponse = await axios.get(`${URL}/get/order`, {
-        headers: { token },
-      });
-      const orders = orderResponse.data;
-      const orderById = orders.filter(
-        (orderMyself) => orderMyself.userId === id
-      );
 
-      setOrder(orderById);
-      setLoading(false);
-      console.log("order",order);
+
+  const removeItemFromOrder = async (orderId, itemId) => {
+    console.log(orderId,itemId)
+    try {
+      const  newURL = `${URL}/remove-item/${orderId}`
+      console.log(newURL)
+      const response = await axios.put(newURL, {
+        itemId,orderId
+      });
+
+      Swal.fire({
+        title: "Item Removed",
+        text: "The item has been removed from your order.",
+        icon: "success",
+        timer: 1500,
+      });
+
+   location.reload()
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data)
+      Swal.fire({
+        title: "Error",
+        text: "Failed to remove the item. Please try again.",
+        icon: "error",
+        timer: 1500,
+      });
     }
   };
-
   useEffect(() => {
     fetchOrder();
   }, [id, URL, token]);
+
+
 
   if (loading) {
     return (
@@ -63,6 +96,7 @@ const Order = () => {
       </div>
     );
   }
+  
 
   return (
     <main className=" container mx-auto">
@@ -72,12 +106,12 @@ const Order = () => {
 
       {order.length > 0 ? (
         <>
-          <table className="table text-lg w-full py-16  z-40 ">
+          <table className="table text-lg w-full py-16  z-40  hidden md:block ">
             <thead>
               <tr className="text-md  lg:text-xl">
                 <th>Image</th>
                 <th>Items</th>
-                <th>Items Count</th>
+                
                 <th>Total Price</th>
                 <th>Order Status</th>
                 <th>Order Cancel</th>
@@ -88,8 +122,8 @@ const Order = () => {
                 <tr
                   key={order._id}
                   className={`${
-                    order.status === "delivered" ? "bg-secondary" : ""
-                  } border-2 border-black`}
+                    order.status === "delivered" ? "bg-secondary border-primary" : ""
+                  } border-2 border-black `}
                 >
                   <td className="w-[20%]">
                     <img
@@ -102,12 +136,30 @@ const Order = () => {
                     <div className="">
                       {order.items.length > 0 ? (
                         order.items.map((item, index) => (
-                          <div key={index} className="">
-                            <span className="">
-                              {item.title} (
-                              <span className="font-bold">{item.quantity}</span>
-                              )
+                          <div key={index} className="flex justify-between">
+                            <span>
+                              {item.title}  
+                              {item.quantity > 1 ?
+                              (
+                                 <span className=" bg-primary text-white px-1 mx-1">x{item.quantity}</span>
+                                ):<></>}
                             </span>
+                            {/* Remove button */}
+                            {
+                              order.items.length > 1 ?
+                            <span
+                            className={`${
+                              order.status !== "pending"
+                                ? "text-gray-400 cursor-not-allowed"
+                                : "text-red-700 hover:text-danger"
+                            } text-sm lg:text-lg  p-2 duration-300`}
+                              onClick={() =>
+                                removeItemFromOrder(order._id, item._id)
+                              }
+                            >
+                              <MdDelete/>
+                            </span>:<></>
+                            }
                           </div>
                         ))
                       ) : (
@@ -115,7 +167,7 @@ const Order = () => {
                       )}
                     </div>
                   </td>
-                  <td className="">{order.items.length}</td>
+                
                   <td>₹{order.amount}</td>
                   <td
                     className={`${
@@ -148,7 +200,8 @@ const Order = () => {
 
           <div className="visible md:invisible">
             {order.map((order) => (
-              <div key={order._id}
+              <div
+                key={order._id}
                 className={`${
                   order.status === "pending"
                     ? "border-2 border-primary"
@@ -162,22 +215,33 @@ const Order = () => {
                   <div className="">
                     {order.items.length > 0 ? (
                       order.items.map((item, index) => (
-                        <div className="" key={index}>
+                        <div className="flex justify-between" key={index}>
                           <span>
-                            {item.title} (
-                            <span className="font-bold">{item.quantity}</span>)
-                          </span>
+                              {item.title}  
+                              {item.quantity > 1 ?
+                              (
+                                 <span className=" bg-primary text-white px-1 mx-1">x{item.quantity}</span>
+                                ):<></>}
+                            </span>
+                          {
+                              order.items.length > 1 ?
+                            <span
+                              className="cursor-pointer text-red-500"
+                              onClick={() =>
+                                removeItemFromOrder(order._id, item._id)
+                              }
+                            >
+                              <MdDelete/>
+                            </span>:<></>
+                            }
                         </div>
                       ))
                     ) : (
                       <p>No items found in this order.</p>
                     )}
                   </div>
-                  <span>
-                    Items:
-                    <span className="font-bold"> {order.items.length}</span>
-                  </span>
-                  <span> ₹{order.amount}</span>
+                 
+                  <span className="ml-2"> ₹{order.amount}</span>
                 </div>
                 <span
                   className={`${

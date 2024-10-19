@@ -158,7 +158,7 @@ const ContextListProvider = ({ children }) => {
       setCouponDiscount(0);
       Swal.fire({
         title: "Invalid coupon code",
-        icon: "info",
+        icon: "error",
         timer: 1000,
       });
     }
