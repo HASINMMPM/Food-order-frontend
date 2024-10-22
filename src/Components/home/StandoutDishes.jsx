@@ -8,7 +8,7 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import FoodCard from "./FoodCerd";
 import { ContextList } from "../commen/ContextListProvider";
-
+import { motion } from "framer-motion";
 const StandoutDishes = () => {
   const [food, setFood] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -75,7 +75,11 @@ const StandoutDishes = () => {
   
 
   return (
-    <main>
+    <motion.main
+    initial={{ y: 150 }}
+    whileInView={{ y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3 }}>
       {food.length > 0 ? (
         <section className="mysection bg-secondary">
           <div className="flex justify-center ">
@@ -128,7 +132,7 @@ const StandoutDishes = () => {
       ) : (
         <></>
       )}
-    </main>
+    </motion.main>
   );
 };
 

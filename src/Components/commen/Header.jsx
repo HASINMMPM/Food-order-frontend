@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "/Logo.png";
 import { ContextList } from "./ContextListProvider";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [paramsId, setParamsId] = useState("");
@@ -32,11 +33,11 @@ const Header = () => {
   }, [token, id]);
 
   const logOut = () => {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"; 
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     setToken(null);
-    setLoginPage(true); 
-    navigate("/"); 
-    location.reload(); 
+    setLoginPage(true);
+    navigate("/");
+    location.reload();
   };
 
   const navItems = (
@@ -54,7 +55,12 @@ const Header = () => {
   );
 
   return (
-    <header className="max-w-screen-2xl container mx-auto bg-secondary">
+    <motion.header
+      initial={{ opacity: 0, y:-100 }}
+      animate={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-screen-2xl container mx-auto bg-secondary"
+    >
       <div className="navbar xl:px-24">
         <div className="navbar-start">
           <div className="dropdown">
@@ -166,7 +172,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

@@ -3,7 +3,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef, useContext } from "react";
 
 import axios from "axios";
@@ -85,7 +85,11 @@ const Toprestorant = () => {
   };
 
   return (
-    <main>
+    <motion.main
+    initial={{ y: 150 }}
+    whileInView={{ y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}>
       {restorant.length > 0 ? (
         <section className="mysection bg-secondary">
           <div className="flex justify-center">
@@ -139,7 +143,7 @@ const Toprestorant = () => {
       ) : (
         <></>
       )}
-    </main>
+    </motion.main>
   );
 };
 

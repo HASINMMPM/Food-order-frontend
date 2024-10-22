@@ -4,7 +4,7 @@ import img from "/review.png";
 import Slider from "react-slick";
 import { ContextList } from "../commen/ContextListProvider";
 import { useContext } from "react";
-
+import { motion } from "framer-motion";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -48,7 +48,15 @@ const Custemerreview = () => {
               {/* 
           Images
            */}
-              <img src={img} alt="" className="w-full h-full object-contain" />
+              <motion.img
+                initial={{ opacity: 0 ,x:-200}}
+                whileInView={{ opacity: 1, x:0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                src={img}
+                alt=""
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-6  justify-center mt-10 md:mt-0">
               <h3 className="text-primary text-xl md:text-3xl font-semibold font-sub-heading capitalize text-start">
@@ -77,13 +85,19 @@ const Custemerreview = () => {
                   </div>
                 </div>
                 <div className="avatar placeholder">
-                  {comments.length >3 ?
-                  <div className="bg-secondary text-black-content w-8 h-8 md:h-12 md:w-12">
-                  <span className="text-xs md:text-lg">+{comments.length-3}</span>
-                </div>:<div className="bg-secondary text-black-content w-8 h-8 md:h-12 md:w-12">
-                    <span className="text-xs md:text-lg">{comments.length}</span>
-                  </div>}
-                  
+                  {comments.length > 3 ? (
+                    <div className="bg-secondary text-black-content w-8 h-8 md:h-12 md:w-12">
+                      <span className="text-xs md:text-lg">
+                        +{comments.length - 3}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="bg-secondary text-black-content w-8 h-8 md:h-12 md:w-12">
+                      <span className="text-xs md:text-lg">
+                        {comments.length}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

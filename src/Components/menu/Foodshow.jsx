@@ -4,6 +4,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import { MdNavigateNext } from "react-icons/md";
 import FoodCard from "./foodCard";
 import { ContextList } from "../commen/ContextListProvider";
+import { motion } from "framer-motion";
 
 const Foodshow = () => {
   const [categories, setCategories] = useState([]);
@@ -42,9 +43,7 @@ const Foodshow = () => {
     if (selectedCategory === "All") {
       return foods;
     } else {
-      return foods.filter((food) =>
-        food.categories.includes(selectedCategory)
-      );
+      return foods.filter((food) => food.categories.includes(selectedCategory));
     }
   }
 
@@ -56,7 +55,7 @@ const Foodshow = () => {
 
     return (
       <div>
-        <div> 
+        <div>
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
           <div className="grid grid-cols-3 gap-5 md:gap-0 md:grid-cols-6 lg:grid-cols-10 py-2">
             {loading ? (
@@ -87,26 +86,29 @@ const Foodshow = () => {
             )}
           </div>
           <hr className="h-[0.250rem] w-full my-2 bg-secondary border-0" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-4">
-  {loading ? (
-    <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  ) : currentItems.length > 0 ? (
-    currentItems.map((dishes, i) => (
-      <FoodCard key={i} dishes={dishes} className="animation" />
-    ))
-  ) : (
-   
-
-    <h1 className="text-2xl py-6 text-danger ">No items to show</h1>
-
-  )}
-</div>
-
+          <motion.div
+            initial={{ y: 150 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.3 }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1
+            md:gap-4"
+          >
+            {loading ? (
+              <div className="lds-ellipsis flex justify-center items-center w-full text-primary">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            ) : currentItems.length > 0 ? (
+              currentItems.map((dishes, i) => (
+                <FoodCard key={i} dishes={dishes} className="animation" />
+              ))
+            ) : (
+              <h1 className="text-2xl py-6 text-danger ">No items to show</h1>
+            )}
+          </motion.div>
         </div>
       </div>
     );
