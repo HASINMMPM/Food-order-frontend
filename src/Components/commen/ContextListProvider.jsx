@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 export const ContextList = createContext();
 
 const ContextListProvider = ({ children }) => {
-  // const URL = "https://foodorder-backend-3.onrender.com/v1";
-  const URL = "http://localhost:3000/v1";
+  const URL = "https://foodorder-backend-3.onrender.com/v1";
+  // const URL = "http://localhost:3000/v1";
   const [cartItems, setCartItems] = useState({});
   const [food, setFood] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
